@@ -5,13 +5,11 @@ from pyvirtualdisplay import Display
 class DisplayOnOff():
     """Display on/off Browser."""
 
-    display = ''
-
     def __init__(self, display):
         """Contructor."""
-        self.display = display
+        pass
 
-    def open_virtual_display():
+    def open_virtual_display(self):
         """Turn of browser display."""
         display = Display(visible=0, size=(100, 100))
         display.start()

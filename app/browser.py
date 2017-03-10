@@ -10,6 +10,7 @@ class Browser():
 
     def __init__(self, driver):
         """Constructor."""
+        self.driver = driver
 
     def access(url):
         """Navigation page."""
@@ -22,3 +23,5 @@ class Browser():
             print("Connection terminated")
         else:
             print("Connection estabilished...")
+
+        return driver

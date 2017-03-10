@@ -4,12 +4,15 @@ from app.browser import Browser
 from selenium.common.exceptions import NoSuchElementException
 
 
-class Scrapernt():
-    def __init__():
+class Scrapernt(Browser):
+    """Scrape page."""
+
+    def __init__(self):
+        """Construtor."""
         pass
 
-
-    def consultants_list(self, zipcode):
+    def consultants_list(self, zipcode, driver):
+        """Scrape Html tags return list consultants."""
         check_exists_by_name("por-avancada")
 
         inputZipCode = driver.find_element_by_xpath("""//*[@id="txtBuscaEnderecoCN"]""")
@@ -34,6 +37,7 @@ class Scrapernt():
                     print(info)
                     target.write(str(info))
 # def check_exists(type, search):
+
     def check_exists_by_name(byname):
         """Test if the element exist in HTML Page."""
         try:
@@ -41,12 +45,12 @@ class Scrapernt():
             inputtxtAvancedSearch.click()
 
         except NoSuchElementException:
-            print "element by name not found!"
+            print("element by name not found!")
             return False
         return True
 
-
     def pagination():
+        """Pagination."""
         paginads = driver.find_elements_by_class_name("wrapper-pagination")
         for b in paginads:
             print(b.tag_name)
