@@ -14,6 +14,11 @@ class Browser():
     def access(url):
         """Navigation page."""
         print("Open webdriver")
-        driver = webdriver.Firefox()
-        driver.implicitly_wait(2)
-        driver.get(url)
+        try:
+            driver = webdriver.Firefox()
+            driver.implicitly_wait(2)
+            driver.get(url)
+        except Exception as e:
+            print("Connection terminated")
+        else:
+            print("Connection estabilished...")
