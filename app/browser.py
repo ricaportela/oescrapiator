@@ -8,20 +8,20 @@ class Browser():
 
     driver = ''
 
-    def __init__(self, driver):
+    def __init__(self, url):
         """Constructor."""
-        self.driver = driver
+        self.url = url
+        self.driver = webdriver.Firefox()
 
-    def access(url):
+    def access(self, url):
         """Navigation page."""
         print("Open webdriver")
         try:
-            driver = webdriver.Firefox()
-            driver.implicitly_wait(2)
-            driver.get(url)
+            self.driver.implicitly_wait(2)
+            self.driver.get(url)
         except Exception as e:
             print("Connection terminated")
         else:
             print("Connection estabilished...")
 
-        return driver
+        return self.driver

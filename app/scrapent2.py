@@ -8,10 +8,11 @@ class Browse_Webdriver():
 
     # URL = "https://www.revistanatura.com.br/html/widget/index_desktop.html?header=true&https=true"
 
+
     def open_browser_webdriver():
         """Open firefox browser."""
-        driver = webdriver.Firefox()
-        return driver
+        drv1 = webdriver.Firefox()
+        return drv1
 
     def open_link(driver, URL):
         """Open html page to scrape."""
@@ -37,7 +38,7 @@ class Browse_Webdriver():
         print(totalpages)
         listnames = []
         while currentpage <= totalpages:
-            drv1.implicitly_wait(3) 
+            # drv1.implicitly_wait(3)
             print("Pagina atual", currentpage)
             listConsultores = driver.find_elements_by_class_name("element-consultant")
             for x in listConsultores:
