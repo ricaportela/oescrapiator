@@ -49,4 +49,4 @@ big.save("input-NEARESTxt")
 
 #   Perform OCR using tesseract-ocr library
 from tesseract import image_to_string
-image = Image.open(input-NEAREST.tifrint image_to_string(image))
+image = Image.open('input-NEAREST.tifrint image_to_string(image)

@@ -1,0 +1,600 @@
+// var backURL = "https://www.revistanatura.com.br";
+var backURL = "//" + window.location.host;
+
+var cnLoginURL = "";
+
+/* LOADING */
+var cSpeed = 9;
+var cWidth = 64;
+var cHeight = 64;
+var cTotalFrames = 8;
+var cFrameWidth = 64;
+var cImageSrc = 'assets/js/sprites.png';
+var cImageTimeout = false;
+var cIndex = 0;
+var cXpos = 0;
+var SECONDS_BETWEEN_FRAMES = 0;
+
+$(function(){
+	$('a').mouseover(function() {
+		$(this).addClass('transparent');
+	}).mouseout(function(){
+		$(this).removeClass('transparent');
+	});
+
+	//HABILITAR CODIGO ABAIXO QDO PUBLICADO EM PRODUCAO (INIBE CONSOLE.LOG E EVITA ERRO NO IE8)
+	// if (typeof console === "undefined" || typeof console.log === "undefined") {
+	// 	console = {};
+	//  	console.log = function() {};
+	// }else{
+	// 	console.log = function() {};
+	// }
+});
+
+
+$(document).mouseup(function (e)
+{
+    var container = $("#dropUser");
+    var container2 = $("#profile");
+
+    var container3 = $(".box-upload-foto");
+    var container4 = $(".thumb");
+    var container5 = $(".thumbRevista");
+
+    if (container.has(e.target).length === 0 && container2.has(e.target).length === 0)
+    {
+        container.slideUp();
+        statusMenu = 0;
+    }
+
+    if (container3.has(e.target).length === 0 && (container4.has(e.target).length === 0))
+    {
+        container3.hide();
+    }
+
+    if($('.indice-localizacao-box').hasClass('indice-menu-ativo')){
+    	natura.modules.MenuScript.IndiceLocalizacao();
+
+	}
+
+    statusThumb = 0;
+    $('.thumbRevista').on('click', function(){
+    	if (statusThumb == 0){
+	    	statusThumb = 1;
+	    	$('.box-upload-foto').show();
+    	}
+    	else {
+		    $('.box-upload-foto').hide();
+		    statusThumb = 0;
+    	}
+    });
+		$('#indice-localizacao').removeClass("ativo");
+
+
+});
+
+
+
+//TRATA A MENSAGEM DE ERRO DOS METODOS AJAX
+function TrataErroBackEnd(Erro){
+	var objErro, objErroJson;
+
+	$.unblockUI();
+
+	if(Erro.statusText == 'timeout'){
+		alert("Ocorreu um timeout na chamada. Favor tentar novamente");
+	}else{
+		objErro = Erro.responseText;
+		if(objErro.indexOf("\"code\"") == -1){
+			if(Erro.readystate != 0){
+				if(Erro.getAllResponseHeaders()){ //Erro de abort
+					//alert("Ocorreu um erro não tratável no Backend." + "\n" + objErro);
+					alert("Ocorreu um erro no servidor." + "\n" + objErro);
+				}
+			}
+		}else{
+			objErroJson = jQuery.parseJSON(objErro);
+			alert("Código:" + objErroJson.code + " - " + objErroJson.error);
+		}
+	}
+}
+
+/* INICIO METODOS DE LOADING */
+function startAnimation(){
+
+	document.getElementById('divBlockLoading').style.backgroundImage='url('+cImageSrc+')';
+	document.getElementById('divBlockLoading').style.width=cWidth+'px';
+	document.getElementById('divBlockLoading').style.height=cHeight+'px';
+	document.getElementById('divBlockLoading').style.margin="0 auto";
+
+	FPS = Math.round(100/cSpeed);
+	SECONDS_BETWEEN_FRAMES = 1 / 8;
+
+	setTimeout('continueAnimation()', SECONDS_BETWEEN_FRAMES/1000);
+
+}
+
+function continueAnimation(){
+
+	cXpos += cFrameWidth;
+	//increase the index so we know which frame of our animation we are currently on
+	cIndex += 1;
+
+	//if our cIndex is higher than our total number of frames, we're at the end and should restart
+	if (cIndex >= cTotalFrames) {
+		cXpos =0;
+		cIndex=0;
+	}
+
+	document.getElementById('divBlockLoading').style.backgroundPosition=(-cXpos)+'px 0';
+
+	setTimeout('continueAnimation()', SECONDS_BETWEEN_FRAMES*1000);
+
+}
+
+function imageLoader(s, fun)//Pre-loads the sprites image
+{
+
+	clearTimeout(cImageTimeout);
+	cImageTimeout=0;
+	genImage = new Image();
+	genImage.onload=function (){cImageTimeout=setTimeout(fun, 0)};
+	genImage.onerror=new Function('alert(\'Could not load the image\')');
+	genImage.src=s;
+
+}
+
+//CARREGA O BLOCO DE LOADING
+function loadblockUI(){
+	$.blockUI({ message: $('#divBlockLoading'), css: { border: 'none', background: 'transparent'} });
+}
+
+/* FIM METODOS DE LOADING */
+
+/* VALIUDACOES */
+function validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+function getUrlVars() {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        if(typeof hash[1] != 'undefined'){
+        	vars[hash[0]] = hash[1].replace('#','');
+        }
+    }
+    return vars;
+}
+
+//:shareFacebook('Nome','Teste de Texto que pode aparecer dentro do share','http://www.globo.com','')
+function shareFacebook(name, texto, link, pic) {
+	link = link.replace('http:','');
+	link = link.replace('https:','');
+	if (window.location.protocol != "https:"){
+		link = 'http:' + link;
+	}else{
+		link = 'https:' + link;
+	}
+
+	var baseURL = "https://endera.websiteseguro.com/RevistaNatura/"; // Sets up the app domain + folder
+    var objShare = "http://www.facebook.com/dialog/feed";
+    var redirect_uri = baseURL + "close.html";
+    objShare += "?app_id=163223667151075";
+    objShare += "&link=" + encodeURIComponent(link);
+    objShare += "&picture=" + encodeURIComponent(pic);
+    objShare += "&name=" + encodeURIComponent(name);
+    objShare += "&description=" + encodeURIComponent(texto);
+    objShare += "&redirect_uri=" + encodeURIComponent(redirect_uri);
+    showWindowShare(objShare, 990, 534);
+}
+
+//:shareTwitter('http://produtos.delvalle.com.br/sementesdecarinho','Teste de Texto que pode aparecer dentro do share')
+function shareTwitter(url, texto) {
+	url = url.replace('http:','');
+	url = url.replace('https:','');
+	if (window.location.protocol != "https:"){
+		url = 'http:' + url;
+	}else{
+		url = 'https:' + url;
+	}
+	
+	var objShare = "http://twitter.com/intent/tweet";
+    objShare += "?url=" + encodeURIComponent(url);
+    objShare += "&text=" + encodeURIComponent(texto + "\n");
+    showWindowShare(objShare, 652, 513);
+}
+
+//A definir
+function shareEmail(texto){
+
+}
+
+function showWindowShare(url, objwidth, objHeight) {
+    var left = (window.screen.width / 2) - (objwidth / 2);
+    var top = (window.screen.height / 2) - (objHeight / 2);
+    var janela = "left=" + left;
+    janela += ",top=" + top;
+    janela += ",width=" + objwidth;
+    janela += ",height=" + objHeight;
+    janela += ",toolbar=no, resizable=0, scrollbars=yes";
+    window.open(url, "_blank", janela)
+}
+
+function callModal(op, param){
+
+	loadblockUI();
+
+    // Settings para diferentes modais
+    // tamanho para modais
+    if(op == 'email' || op == 'twitter' || op == 'facebook' || op == 'compartilhar_favoritos' || op == 'compartilhar_email' || op == 'questoes_seguranca' || op == 'minhas_consultoras' || op == 'email_cesta'){
+    	margem = 100;
+    }else if(op == 'precisa_logado'){
+    	margem = 75;
+    }
+    else if(op == 'editorial'){
+    	margem = 55;
+    }else if(op == 'produto'){
+    	g_SKU = param;
+    	margem = 22;
+    }else if(op == 'video' || op == 'localizacao'){
+    	margem = 55;
+    }else if(op == 'email_cn'){
+    	margem = 55;
+    }else{
+    	margem = 0;
+    }
+
+    if(g_IsMobile == true){
+    	margem = 0;
+    }
+
+	$.fancybox({
+		'type' 				: 'iframe',
+		'scrolling'			: 'no',
+		'padding'			: 0,
+		'margin'			: margem,
+		'width'				: '100%',
+		'height'			: '100%',
+		'href'				: 'modal/modal_' + op + '.html',
+		'transitionIn'		: 'none',
+		'transitionOut'		: 'none',
+		'centerOnScroll'	: true,
+		'showCloseButton'	: false,
+		'hideOnOverlayClick' : false,
+		'autoScale': false,
+		'onStart': function() {
+			$(window).unbind('scroll');
+			$('body').css('overflow', 'hidden');
+		},
+		'onComplete': function(){
+			 $.fancybox.center();
+		},
+		'onClosed': function() {
+			$(window).bind('scroll');
+			$('body').css('overflow', 'auto');
+		}
+	});
+
+	prefs.saveNavegacao();
+}
+
+// ------------------------------------------------------------------------
+function tutorialCapa(){
+document.body.style.overflow="hidden";
+	// CN
+	if(prefs.oCkTipoUsuario == 1){
+			$tut = $('.tutorial');
+			$tutCapa = $tut.find('#tutorialCapa').hide()
+
+			$('#tutorialCapa').attr('src','assets/img/tutorial/tutorial_capa_cn.png?25032015');
+
+			if(g_IsMobile){
+
+				if($('html').hasClass('android')){
+					
+					if(g_Orientacao == 'H'){
+						$('#tutorialCapa').attr('src','assets/img/tutorial/tutorial_cn_capa_h.png?20160916');	
+					}else{
+						$('#tutorialCapa').attr('src','assets/img/tutorial/tutorial_cn_capa_v.png?20160916');
+					}
+				}
+				
+			}
+			
+			$tut.show();
+			$tutCapa.show();
+
+			$tut.on('click', function(e){
+				e.preventDefault();
+				$tutCapa.hide();
+				$(this).hide();
+        document.body.style.overflow="visible";
+			});
+
+			prefs.oCktutorialCapa = 1;
+			prefs.save();
+
+	}
+
+	// CF
+	if(prefs.oCkTipoUsuario == 2){
+
+
+			$tut = $('.tutorial');
+			$tutCapa = $tut.find('#tutorialCapa').hide();
+
+			$('#tutorialCapa').attr('src','assets/img/tutorial/tutorial_web_capa_cf.png?20160916');
+
+			if(g_IsMobile){
+
+				if($('html').hasClass('android')){
+				
+					if(g_Orientacao == 'H'){
+						$('#tutorialCapa').attr('src','assets/img/tutorial/tutorial_cf_capa_h.png?20160916');	
+					}else{
+						$('#tutorialCapa').attr('src','assets/img/tutorial/tutorial_cf_capa_v.png?20160916');
+					}
+				}
+
+			}
+
+			$tut.show();
+			$tutCapa.show();
+
+			$tut.on('click', function(e){
+				e.preventDefault();
+				$tutCapa.hide();
+				$(this).hide();
+        document.body.style.overflow="visible";
+			});
+
+			prefs.oCktutorialCapa = 1;
+			prefs.save();
+			}
+
+	// VISITANTE
+	if(prefs.oCkTipoUsuario == 3){
+
+
+			$tut = $('.tutorial');
+			$tutCapa = $tut.find('#tutorialCapa').hide();
+
+			$('#tutorialCapa').attr('src','assets/img/tutorial/tutorial_web_capa_visitante.png?20160916');
+
+			if(g_IsMobile){
+
+				if($('html').hasClass('android')){
+
+					if(g_Orientacao == 'H'){
+						$('#tutorialCapa').attr('src','assets/img/tutorial/tutorial_visitante_capa_h.png');	
+					}else{
+						$('#tutorialCapa').attr('src','assets/img/tutorial/tutorial_visitante_capa_v.png');
+					}
+				}
+
+			}
+
+			$tut.show();
+			$tutCapa.show();
+
+			$tut.on('click', function(e){
+				e.preventDefault();
+				$tutCapa.hide();
+				$(this).hide();
+        document.body.style.overflow="visible";
+			});
+
+			prefs.oCktutorialCapa = 1;
+			prefs.save();
+			}
+
+}
+// ------------------------------------------------------------------------
+
+// ------------------------------------------------------------------------
+function tutorialEdicoes(){
+document.body.style.overflow="hidden";
+
+	// CN
+	if(prefs.oCkTipoUsuario == 1){
+			$tut = $('.tutorial-edicoes');
+			$tutCapa = $tut.find('#tutorialEdicoes').hide();
+
+			$('#tutorialEdicoes').attr('src','assets/img/tutorial/tutorial_edicoes_cn.png?20160916');
+
+			if(g_IsMobile){
+				
+			}
+			
+			$tut.show();
+			$tutCapa.show();
+
+			$tut.on('click', function(e){
+				e.preventDefault();
+				$tutCapa.hide();
+				$(this).hide();
+        document.body.style.overflow="visible";
+			});
+
+			prefs.oCktutorialEdicoes = 1;
+			prefs.save();
+
+	}
+
+	//CF
+	if(prefs.oCkTipoUsuario == 2){
+			$tut = $('.tutorial-edicoes');
+			$tutCapa = $tut.find('#tutorialEdicoes').hide();
+
+			$('#tutorialEdicoes').attr('src','assets/img/tutorial/tutorial_edicoes_cf.png?20160916');
+
+			if(g_IsMobile){
+				
+			}
+			
+			$tut.show();
+			$tutCapa.show();
+
+			$tut.on('click', function(e){
+				e.preventDefault();
+				$tutCapa.hide();
+				$(this).hide();
+        document.body.style.overflow="visible";
+			});
+
+			prefs.oCktutorialEdicoes = 1;
+			prefs.save();
+
+	}
+
+	// VISITANTE
+	if(prefs.oCkTipoUsuario == 3){
+			$tut = $('.tutorial-edicoes');
+			$tutCapa = $tut.find('#tutorialEdicoes').hide();
+
+			$('#tutorialEdicoes').attr('src','assets/img/tutorial/tutorial_edicoes_visitante.png?20160916');
+
+			if(g_IsMobile){
+				
+			}
+			
+			$tut.show();
+			$tutCapa.show();
+
+			$tut.on('click', function(e){
+				e.preventDefault();
+				$tutCapa.hide();
+				$(this).hide();
+        document.body.style.overflow="visible";
+			});
+
+			prefs.oCktutorialEdicoes = 1;
+			prefs.save();
+		
+	}
+}
+function tutorialConsultoria () {
+document.body.style.overflow="hidden";
+	//showTutorial CN
+	if (prefs.oCkTipoUsuario == 1) {
+		
+			$tut = $('.tutorial-edicoes');
+			$tutCapa = $tut.find('#tutorialEdicoes').hide();
+
+			$('#tutorialEdicoes').attr('src','assets/img/tutorial/tutorial_consultoria.png?25032015');
+
+			if(g_IsMobile){
+				
+			}
+			
+			$tut.show();
+			$tutCapa.show();
+
+			$tut.on('click', function(e){
+				e.preventDefault();
+				$tutCapa.hide();
+				$(this).hide();
+        document.body.style.overflow="visible";
+			});
+
+		prefs.oCktutorialMetricas = 1;
+
+	}
+
+	prefs.save();
+}
+function tutorialSimulador () {
+document.body.style.overflow="hidden";
+	//showTutorial CN
+	if (prefs.oCkTipoUsuario == 1) {
+
+			$tut = $('.tutorial-edicoes');
+			$tutCapa = $tut.find('#tutorialEdicoes').hide();
+
+			$('#tutorialEdicoes').attr('src','assets/img/tutorial/tutorial_simulador.png?20160916');
+
+			if(g_IsMobile){
+				
+			}
+			
+			$tut.show();
+			$tutCapa.show();
+
+			$tut.on('click', function(e){
+				e.preventDefault();
+				$tutCapa.hide();
+				$(this).hide();
+        document.body.style.overflow="visible";
+			});
+
+		prefs.oCktutorialSimulador = 1;
+	}
+
+
+	prefs.save();
+}
+
+function tutorialMetricas () {
+document.body.style.overflow="hidden";
+	//showTutorial CN
+	if (prefs.oCkTipoUsuario == 1) {
+		
+			$tut = $('.tutorial-edicoes');
+			$tutCapa = $tut.find('#tutorialEdicoes').hide();
+
+			$('#tutorialEdicoes').attr('src','assets/img/tutorial/tutorial_metricas.png?20160916');
+
+			if(g_IsMobile){
+				
+			}
+			
+			$tut.show();
+			$tutCapa.show();
+
+			$tut.on('click', function(e){
+				e.preventDefault();
+				$tutCapa.hide();
+				$(this).hide();
+        document.body.style.overflow="visible";
+			});
+
+		prefs.oCktutorialMetricas = 1;
+
+	}
+
+	prefs.save();
+}
+
+function tutorialInterativo () {
+document.body.style.overflow="hidden";
+
+      $tut = $('.tutorial-edicoes');
+			$tutCapa = $tut.find('#tutorialEdicoes').hide();
+
+			$('#tutorialEdicoes').attr('src','assets/img/tutorial/conteudointerativo.png?20160916');
+
+			if(g_IsMobile){
+
+			}
+
+			$tut.show();
+			$tutCapa.show();
+
+			$tut.on('click', function(e){
+				e.preventDefault();
+				$tutCapa.hide();
+				$(this).hide();
+        document.body.style.overflow="visible";
+			});
+
+		prefs.oCktutorialInterativo = 1;
+
+
+	prefs.save();
+}

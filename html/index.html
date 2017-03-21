@@ -1,0 +1,2398 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><link href="Widget%20Natura_files/css.css" rel="stylesheet" type="text/css"><style type="text/css">.gm-style .gm-style-cc span,.gm-style .gm-style-cc a,.gm-style .gm-style-mtc div{font-size:10px}</style><style type="text/css">@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style type="text/css">.pac-container{background-color:#fff;position:absolute!important;z-index:1000;border-radius:2px;border-top:1px solid #d9d9d9;font-family:Arial,sans-serif;box-shadow:0 2px 6px rgba(0,0,0,0.3);-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;overflow:hidden}.pac-logo:after{content:"";padding:1px 1px 1px 0;height:16px;text-align:right;display:block;background-image:url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3.png);background-position:right;background-repeat:no-repeat;background-size:120px 14px}.hdpi.pac-logo:after{background-image:url(https://maps.gstatic.com/mapfiles/api-3/images/powered-by-google-on-white3_hdpi.png)}.pac-item{cursor:default;padding:0 4px;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;line-height:30px;text-align:left;border-top:1px solid #e6e6e6;font-size:11px;color:#999}.pac-item:hover{background-color:#fafafa}.pac-item-selected,.pac-item-selected:hover{background-color:#ebf2fe}.pac-matched{font-weight:700}.pac-item-query{font-size:13px;padding-right:3px;color:#000}.pac-icon{width:15px;height:20px;margin-right:7px;margin-top:6px;display:inline-block;vertical-align:top;background-image:url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons.png);background-size:34px}.hdpi .pac-icon{background-image:url(https://maps.gstatic.com/mapfiles/api-3/images/autocomplete-icons_hdpi.png)}.pac-icon-search{background-position:-1px -1px}.pac-item-selected .pac-icon-search{background-position:-18px -1px}.pac-icon-marker{background-position:-1px -161px}.pac-item-selected .pac-icon-marker{background-position:-18px -161px}.pac-placeholder{color:gray}</style><style type="text/css">.gm-style { font: 400 11px Roboto, Arial, sans-serif;text-decoration: none; }.gm-style img { max-width: none; }</style>
+	<title>Widget Natura</title>
+	<script src="Widget%20Natura_files/ga.js" async="" type="text/javascript"></script><script src="Widget%20Natura_files/gas.js" async="" type="text/javascript"></script><script style="" src="Widget%20Natura_files/js" type="text/javascript"></script>
+	<script type="text/javascript" src="Widget%20Natura_files/recaptcha_ajax.js"></script>
+	<link rel="stylesheet" media="all" href="Widget%20Natura_files/reset.css">
+	<link rel="stylesheet" media="all" href="Widget%20Natura_files/common.css">
+	<link rel="stylesheet" media="all" href="Widget%20Natura_files/style.css">
+	<link rel="stylesheet" media="all" href="Widget%20Natura_files/busca-cn.css">
+
+	<link rel="stylesheet" media="all" href="Widget%20Natura_files/widget.css">
+	<link rel="stylesheet" media="all" href="Widget%20Natura_files/messi.css">
+
+	<script type="text/javascript" src="Widget%20Natura_files/jquery.1"></script>
+	<script type="text/javascript" src="Widget%20Natura_files/jquery.cookie"></script>
+	<script type="text/javascript" src="Widget%20Natura_files/jquery.blockUI"></script>
+	<script src="Widget%20Natura_files/jquery_002.min"></script>
+	<script type="text/javascript" src="Widget%20Natura_files/global"></script>
+	<script type="text/javascript" src="Widget%20Natura_files/jquery.min"></script>
+	<script type="text/javascript" src="Widget%20Natura_files/messi.min"></script>
+	<script type="text/javascript" src="Widget%20Natura_files/scrollTo.js"></script>
+
+	<style>
+		/* Base for label styling */
+		[type="radio"]:not(:checked),
+		[type="radio"]:checked {
+			position: absolute;
+			left: -9999px;
+		}
+		[type="radio"]:not(:checked) + label,
+		[type="radio"]:checked + label {
+			position: relative;
+			padding-left: 20px;
+			cursor: pointer;
+		}
+
+		/* checkbox aspect */
+		[type="radio"]:not(:checked) + label:before,
+		[type="radio"]:checked + label:before {
+			content: '';
+			position: absolute;
+			left:0; top: 2px;
+			width: 12px; height: 12px;
+			border: 1px solid #2E5147;
+		}
+		/* checked mark aspect */
+		[type="radio"]:not(:checked) + label:after,
+		[type="radio"]:checked + label:after {
+			content: ' ';
+			position: absolute;
+			top: 5px;
+			left: 3px;
+			width: 8px;
+			height: 8px;
+			background: #2D5146;
+			display: block;
+		}
+		/* checked mark aspect changes */
+		[type="radio"]:not(:checked) + label:after {
+			opacity: 0;
+			transform: scale(0);
+		}
+		[type="radio"]:checked + label:after {
+			opacity: 1;
+			transform: scale(1);
+		}
+		/* disabled checkbox */
+		[type="radio"]:disabled:not(:checked) + label:before,
+		[type="radio"]:disabled:checked + label:before {
+			box-shadow: none;
+			border-color: #bbb;
+			background-color: #ddd;
+		}
+		[type="radio"]:disabled:checked + label:after {
+			color: #999;
+		}
+		[type="radio"]:disabled + label {
+			color: #aaa;
+		}
+
+		#gmapa{
+			width:100%;
+			height:100%;
+			overflow: hidden;
+			top: 100px;
+		}
+
+		.gm-style > div:first-child > div + div > div:last-child > div > div:first-child > div
+		{
+			box-shadow: none !important;
+			width: 283px !important;
+			border-top: 0 none !important;
+		}
+
+		.gm-style-iw
+		{
+			left: 1px !important;
+			width: 283px !important;
+		}
+
+		.header {
+			width: 810px;
+			height: 200px;
+			background: url("img/header_com_texto2.jpg");
+		}
+
+		.btnQueroSerEncontrado{
+			float: right;
+			margin-right: 19px;
+			margin-top: 128px;
+			cursor: pointer;
+		}
+
+		.btnQueroSerEncontrado:hover {
+			opacity: 0.85;
+		}
+
+		.btnAtualizaCadastro{
+			float: left;
+			margin-left: 19px;
+			margin-top: 12px;
+			cursor: pointer;
+		}
+
+		.btnAtualizaCadastro:hover {
+			opacity: 0.85;
+		}
+
+		.removelateralinfowindow{
+			width: 283px !important;
+		}
+
+		.bgBranco {
+			background-color: white;
+			margin-top: 0;
+			padding-left: 20px;
+			float: left;
+			display:none;
+		}
+
+		.souconsultorTXT{
+			font-family: 'gill_sans_std_light';
+			font-size: 18px;
+			font-weight: bold;
+			font-style: normal;
+			color: #f59d5a;
+			display:block;
+			margin-top: 20px;
+		}
+
+		.cinzaTXT{
+			font-family: 'gill_sans_std_light';
+			font-size: 16px;
+			font-weight: nromal;
+			font-style: normal;
+			color: #7e7d7d;
+			display:block;
+			margin-top: 15px;
+			letter-spacing: 0px;
+		}
+
+		.btnGlobal {
+			background-color:#285e51;
+			-webkit-border-top-left-radius:3px;
+			-moz-border-radius-topleft:3px;
+			border-top-left-radius:3px;
+			-webkit-border-top-right-radius:3px;
+			-moz-border-radius-topright:3px;
+			border-top-right-radius:3px;
+			-webkit-border-bottom-right-radius:3px;
+			-moz-border-radius-bottomright:3px;
+			border-bottom-right-radius:3px;
+			-webkit-border-bottom-left-radius:3px;
+			-moz-border-radius-bottomleft:3px;
+			border-bottom-left-radius:3px;
+			text-indent:0;
+			border:0px;
+			display:inline-block;
+			color:#ffffff;
+			font-family: 'gill_sans_std_light';
+			font-size:14px;
+			font-weight:normal;
+			font-style:normal;
+			height:30px;
+			line-height:30px;
+			text-decoration:none;
+			text-align:center;
+			margin-top:15px;
+		}
+
+		.btnGlobal:hover {
+			background-color:#2e6e5f;
+		}
+
+		.btnGlobal:active {
+			position:relative;
+			top:1px;
+		}
+
+		.btnAtivar{
+			width:380px;
+			float:left;
+		}
+
+		.btnMenor{
+			font-size:12px;
+			width:232px;
+			float:left;
+			display:block;
+		}
+
+		.btnVoltar{
+			font-size:12px;
+			width:90px;
+			float:left;
+			display:block;
+		}
+
+		.btnQueroserencontrado{
+			width:390px;
+			float:right;
+		}
+
+		.bgAtivacao {
+			background-color: white;
+			float: left;
+			margin-top: 0;
+			opacity: 0.93;
+			padding: 0;
+			width: 810px;
+		}
+
+		.textContainer{
+			width:380px;
+			height:auto;
+			display:block;
+			margin-left: auto;
+			margin-right: auto;
+			margin-top: 90px;
+		}
+
+		.welcomeTXT{
+			font-family: 'gill_sans_std_bold';
+			font-size: 30px;
+			font-weight: normal;
+			font-style: normal;
+			color: #f59d5a;
+			display:block;
+		}
+
+		.subtituloTXT{
+			font-family: 'gill_sans_std';
+			font-size: 20px;
+			font-weight: normal;
+			font-style: normal;
+			color: rgb(0, 0, 0);
+			display:block;
+		}
+
+		.calltoactionTXT{
+			font-family: 'gill_sans_std_light';
+			font-size: 18px;
+			font-weight: normal;
+			font-style: normal;
+			color: rgb(0, 0, 0);
+			display:block;
+			padding-top: 25px;
+		}
+
+		.souconsultorTXT{
+			font-family: 'gill_sans_std_light';
+			font-size: 18px;
+			font-weight: bold;
+			font-style: normal;
+			color: #f59d5a;
+			display:block;
+		}
+
+		.recaptcha_image #recaptcha_image{
+			width : 244px !important;
+		}
+
+		.imagemarker #recaptcha_challenge_image{
+			width : 244px !important;
+		}
+	</style>
+<script src="Widget%20Natura_files/common.js" charset="UTF-8" type="text/javascript"></script><script src="Widget%20Natura_files/util.js" charset="UTF-8" type="text/javascript"></script><script src="Widget%20Natura_files/geocoder.js" charset="UTF-8" type="text/javascript"></script><script src="Widget%20Natura_files/controls.js" charset="UTF-8" type="text/javascript"></script><script src="Widget%20Natura_files/places_impl.js" charset="UTF-8" type="text/javascript"></script><script src="Widget%20Natura_files/map.js" charset="UTF-8" type="text/javascript"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v3/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style><script src="Widget%20Natura_files/infowindow.js" charset="UTF-8" type="text/javascript"></script><script src="Widget%20Natura_files/onion.js" charset="UTF-8" type="text/javascript"></script><script src="Widget%20Natura_files/stats.js" charset="UTF-8" type="text/javascript"></script><script src="Widget%20Natura_files/marker.js" charset="UTF-8" type="text/javascript"></script></head>
+<body style="min-height: auto ! important;">
+	
+	<div class="header" style="display:none">
+		<a href="#" target="_blank"><img src="Widget%20Natura_files/btn_sou_consultor.png" class="btnQueroSerEncontrado"></a>
+	</div>
+
+	<div class="bgAtivacao" style="display: none; height: 800px;">
+		<div class="textContainer">
+			<span class="welcomeTXT">Bem-vindo(a)</span>
+			<span class="subtituloTXT">Agora você pode encontrar o consultor(a) 
+Natura mais perto de você, seja entre os seus amigos do Facebook ou 
+entre os consultores(as) perto de onde você está.</span>
+			<span class="calltoactionTXT">Para utilizar este serviço, basta permitir os acessos do aplicativo clicando no botão abaixo.</span>
+			<a href="#" class="btnGlobal btnAtivar noselect" onclick="permiteAcessoFB(event)">PERMITIR ACESSO</a>
+		</div>
+	</div>
+
+	<div style="width: 790px; height: 605px;" class="bgBranco">
+		<span class="souconsultorTXT">SOU CONSULTOR NATURA E QUERO SER ENCONTRADO</span>
+
+		<span class="cinzaTXT">Mantenha seu cadastro atualizado na Revista Natura Digital. Assim, toda vez que um cliente procurar por um Consultor<br> Natura, você poderá aparecer nos resultados da busca dele!</span>
+		<span class="cinzaTXT" style="margin-top:30px !important">Já é cadastrado na Revista Natura Digital? Caso sim, atualize seus dados de contato. Caso ainda não tenha cadastro na<br> Revista Natura Digital, basta inserir seu código CN e senha para se cadastrar.</span>
+
+		<a href="https://www.revistanatura.com.br/perfil-consultor" class="btnGlobal btnMenor noselect" target="_blank"><img src="Widget%20Natura_files/btn_atualize.png"></a><br><br>
+
+		<span class="cinzaTXT" style="margin-top:65px;">Esqueceu seu código CN ou senha?</span>
+
+		<a href="https://login.natura.net/acesso-seguro/esqueci-minha-senha.html" class="btnGlobal btnMenor noselect" target="_blank"><img src="Widget%20Natura_files/btn_resgate.png"></a><br><br>
+
+		<span class="cinzaTXT" style="margin-top:65px;">É imprescindível que seus dados de contato, especialmente telefone e endereço, estejam preenchidos<br>corretamente na Revista Natura Digital.</span>
+
+		<a href="#" class="btnGlobal btnVoltar noselect" onclick="VoltaFB(event);"><img src="Widget%20Natura_files/btn_voltar.png"></a>
+	</div>
+	<div id="main-wrapper">
+		<header style="">
+			<div class="wrapper">
+				<div class="logo-natura"></div>
+				<h1>Encontre um Consultor Natura</h1>
+			</div>
+		</header>
+
+		<div style="width: 1177px; height: 605px;" id="wrapper-map">
+			<div style="position: relative; overflow: hidden;" id="gmapa"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: white;"><div class="gm-style" style="position: absolute; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; z-index: 0;"><div style="position: absolute; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; z-index: 0; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default;"><div style="position: absolute; left: 0px; top: 0px; z-index: 1; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; position: absolute; left: 350px; top: 246px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 606px; top: 246px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 350px; top: -10px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 350px; top: 502px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 606px; top: -10px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 606px; top: 502px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 94px; top: 246px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 862px; top: 246px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 94px; top: -10px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 94px; top: 502px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 862px; top: -10px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 862px; top: 502px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -162px; top: 246px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1118px; top: 246px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -162px; top: -10px;"></div><div style="width: 256px; height: 256px; position: absolute; left: -162px; top: 502px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1118px; top: -10px;"></div><div style="width: 256px; height: 256px; position: absolute; left: 1118px; top: 502px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 350px; top: 246px;"><canvas width="256" height="256" style="-moz-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;" draggable="false"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 606px; top: 246px;"><canvas width="256" height="256" style="-moz-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;" draggable="false"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 350px; top: -10px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 350px; top: 502px;"><canvas width="256" height="256" style="-moz-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;" draggable="false"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 606px; top: -10px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 606px; top: 502px;"><canvas width="256" height="256" style="-moz-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;" draggable="false"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 94px; top: 246px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 862px; top: 246px;"><canvas width="256" height="256" style="-moz-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;" draggable="false"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 94px; top: -10px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 94px; top: 502px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 862px; top: -10px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 862px; top: 502px;"><canvas width="256" height="256" style="-moz-user-select: none; position: absolute; left: 0px; top: 0px; height: 256px; width: 256px;" draggable="false"></canvas></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -162px; top: 246px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1118px; top: 246px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -162px; top: -10px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -162px; top: 502px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1118px; top: -10px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 1118px; top: 502px;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div aria-hidden="true" style="position: absolute; left: 0px; top: 0px; z-index: 1; visibility: inherit;"><div style="position: absolute; left: 350px; top: 246px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 606px; top: 246px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_010.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 350px; top: -10px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_002.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 350px; top: 502px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_005.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 606px; top: -10px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_014.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 606px; top: 502px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_013.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 94px; top: 246px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_015.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 862px; top: 246px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_016.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 94px; top: -10px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_009.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 94px; top: 502px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_017.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 862px; top: -10px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_006.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 862px; top: 502px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_008.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -162px; top: 246px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_012.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1118px; top: 246px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_011.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -162px; top: -10px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_007.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -162px; top: 502px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_018.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1118px; top: -10px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_003.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 1118px; top: 502px; transition: opacity 200ms ease-out 0s;"><img alt="" draggable="false" src="Widget%20Natura_files/vt_004.png" style="width: 256px; height: 256px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 2; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 3; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 4; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div><iframe style="visibility: hidden; z-index: 0; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;"></iframe><div style="width: 1px; height: 1px; z-index: 1000; position: absolute; left: 688px; top: 402px;"></div></div><div style="margin-left: 5px; margin-right: 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a title="Click to see this area on Google Maps" href="https://maps.google.com/maps?ll=-23.451965,-47.50794&amp;z=13&amp;t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=apiv3" target="_blank" style="position: static; overflow: visible; float: none; display: inline;"><div style="width: 66px; height: 26px; cursor: pointer;"><img draggable="false" src="Widget%20Natura_files/google4.png" style="position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div></a></div><div style="background-color: white; padding: 15px 21px; border: 1px solid rgb(171, 171, 171); font-family: Roboto,Arial,sans-serif; color: rgb(34, 34, 34); box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2); z-index: 10000002; display: none; width: 256px; height: 148px; position: absolute; left: 439px; top: 213px;"><div style="padding: 0px 0px 10px; font-size: 16px;">Map Data</div><div style="font-size: 13px;">Map data ©2017 Google</div><div style="width: 13px; height: 13px; overflow: hidden; position: absolute; opacity: 0.7; right: 12px; top: 12px; z-index: 10000; cursor: pointer;"><img draggable="false" src="Widget%20Natura_files/mapcnt6.png" style="position: absolute; left: -2px; top: -336px; width: 59px; height: 492px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div></div><div style="z-index: 1000001; position: absolute; right: 161px; bottom: 0px; width: 121px;" class="gmnoprint"><div class="gm-style-cc" style="-moz-user-select: none; height: 14px; line-height: 14px;" draggable="false"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a style="color: rgb(68, 68, 68); text-decoration: none; cursor: pointer; display: none;">Map Data</a><span style="">Map data ©2017 Google</span></div></div></div><div style="position: absolute; right: 0px; bottom: 0px;" class="gmnoscreen"><div style="font-family: Roboto,Arial,sans-serif; font-size: 11px; color: rgb(68, 68, 68); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Map data ©2017 Google</div></div><div draggable="false" style="z-index: 1000001; -moz-user-select: none; height: 14px; line-height: 14px; position: absolute; right: 92px; bottom: 0px;" class="gmnoprint gm-style-cc"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a target="_blank" href="https://www.google.com/intl/en-US_US/help/terms_maps.html" style="text-decoration: none; cursor: pointer; color: rgb(68, 68, 68);">Terms of Use</a></div></div><div style="cursor: pointer; width: 25px; height: 25px; overflow: hidden; display: none; margin: 10px 14px; position: absolute; top: 0px; right: 0px;"><img class="gm-fullscreen-control" draggable="false" src="Widget%20Natura_files/sv9.png" style="position: absolute; left: -52px; top: -86px; width: 164px; height: 175px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px;"></div><div class="gm-style-cc" style="-moz-user-select: none; height: 14px; line-height: 14px; position: absolute; right: 0px; bottom: 0px;" draggable="false"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a href="https://www.google.com/maps/@-23.4519645,-47.50794,13z/data=%2110m1%211e1%2112b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto,Arial,sans-serif; font-size: 10px; color: rgb(68, 68, 68); text-decoration: none; position: relative;" title="Report errors in the road map or imagery to Google" target="_new">Report a map error</a></div></div><div controlheight="55" controlwidth="28" draggable="false" style="margin: 10px; -moz-user-select: none; position: absolute; bottom: 69px; right: 28px;" class="gmnoprint gm-bundled-control gm-bundled-control-on-bottom"><div controlheight="55" controlwidth="28" style="position: absolute; left: 0px; top: 0px;" class="gmnoprint"><div style="-moz-user-select: none; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); border-radius: 2px; cursor: pointer; background-color: rgb(255, 255, 255); width: 28px; height: 55px;" draggable="false"><div style="position: relative; width: 28px; height: 27px; left: 0px; top: 0px;" title="Zoom in"><div style="overflow: hidden; position: absolute; width: 15px; height: 15px; left: 7px; top: 6px;"><img draggable="false" src="Widget%20Natura_files/tmapctrl.png" style="position: absolute; left: 0px; top: 0px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none; width: 120px; height: 54px;"></div></div><div style="position: relative; overflow: hidden; width: 67%; height: 1px; left: 16%; background-color: rgb(230, 230, 230); top: 0px;"></div><div style="position: relative; width: 28px; height: 27px; left: 0px; top: 0px;" title="Zoom out"><div style="overflow: hidden; position: absolute; width: 15px; height: 15px; left: 7px; top: 6px;"><img draggable="false" src="Widget%20Natura_files/tmapctrl.png" style="position: absolute; left: 0px; top: -15px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none; width: 120px; height: 54px;"></div></div></div></div><div style="display: none; position: absolute;" controlheight="0" controlwidth="28" class="gmnoprint"><div title="Rotate map 90 degrees" style="width: 28px; height: 28px; overflow: hidden; position: absolute; border-radius: 2px; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); cursor: pointer; background-color: rgb(255, 255, 255); display: none;"><img draggable="false" src="Widget%20Natura_files/tmapctrl4.png" style="position: absolute; left: -141px; top: 6px; width: 170px; height: 54px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div><div class="gm-tilt" style="width: 28px; height: 28px; overflow: hidden; position: absolute; border-radius: 2px; box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.3); top: 0px; cursor: pointer; background-color: rgb(255, 255, 255);"><img draggable="false" src="Widget%20Natura_files/tmapctrl4.png" style="position: absolute; left: -141px; top: -13px; width: 170px; height: 54px; -moz-user-select: none; border: 0px none; padding: 0px; margin: 0px; max-width: none;"></div></div></div></div></div></div>
+		</div>
+
+		<div id="wrapper-menu" style="">
+			<div class="element-menu por-localizacao" name="por-localizacao">
+				<div class="wrapper-always-visible-data">
+					<h1>Por localização</h1>
+					<div class="icon icon-localizador"></div>
+				</div>
+				<div class="wrapper-tab-content">
+					<div class="wrapper-consultants-scroller">
+						<p style="font-family:'gill_sans_std_light'; font-size: 0.9em; margin-left: 19px; margin-bottom: 15px; width: 86%;">Para
+ encontrar um consultor, você deve autorizar que o navegador utilize a 
+sua localização. A busca pode demorar alguns instantes.</p>
+
+						<a href="#" class="btnGlobal btnAtivar noselect" onclick="permiteLocalizacao(event)" style="width:200px; margin-left: 62px;">OK</a>
+					</div>
+				</div>
+			</div>
+
+			<div class="element-menu busca-avancada expanded" name="por-avancada">
+				<div class="wrapper-always-visible-data">
+					<h1>Busca avançada</h1>
+					<div class="icon icon-buscaconsultor"></div>
+				</div>
+				<div class="wrapper-tab-content">
+					<input value="18075570" autocomplete="off" id="txtBuscaEnderecoCN" placeholder="Digite um endereço ou CEP" type="text">
+					<input id="txtBuscaCN" placeholder="Digite o Email do(a) consultor(a)" style="display:none" type="text"> <input id="btnBuscar" value="Buscar" type="button">
+					<div class="radio nome">
+						<input id="nome" name="form" type="radio">
+						<label for="nome">Nome</label>
+					</div>
+					<div class="radio endereco">
+						<input id="endereco" name="form" checked="checked" type="radio">
+						<label for="endereco">Endereço/CEP</label>
+					</div>
+
+					<div class="radio email">
+						<input id="email" name="form" type="radio">
+						<label for="email">E-mail</label>
+					</div>
+					<div class="wrapper-consultants-scroller-avancada"><div class="totalencontrado" style="height: 24px; margin-left: 20px;"><span class="cnencontrado">Foram encontrados <span class="cnencontrado-total">521 consultores.</span> </span></div> 	<div style="width:100%"><div style="display: block; float: left; margin-left: 20px; width: 97px; margin-top: 5px;">Ordenar por: </div><div id="wrapper-ordenar" style="width:152px"> 	<p class="noselect"> 		Ordem alfabética 		<icon class="icon-down"></icon> 	</p> 	<div class="ordenar masterlocaliza" style="display: none;"> 		<div class="element" target="mais-proximas" onclick="ordenaBusca(4, this);"> 			Mais próximos 		</div> 		<div class="element" style="font-weight:bold" target="ordem-alfabetica" onclick="ordenaBusca(1, this);"> 			Ordem alfabética 		</div> 		<div class="element" target="estado" onclick="ordenaBusca(2, this);"> 			Estado 		</div> 	</div> </div></div><div class="element-consultant"> <div class="wrapper-display-more-info"> 	<div class="icon icon-plusinfo"></div> 	<div class="icon icon-voltar" style="display: none; top:6px"></div> </div> <div class="wrapper-consultant-picture"> 	<img src="Widget%20Natura_files/loader-busca.gif" class="lazy lazyavancada" data-original="https://aquitem.natura.net/api/v1/user/abel.faria.142/picture" alt="" style="width:76px;"> </div> <div class="wrapper-consultant-basic-info"> 	<p> 		<span>Abel Faria</span> 		Votorantim-SP 	</p> </div> <div class="wrapper-consultant-additional-info"> 	<img class="imgdado_91847370" src="Widget%20Natura_files/imagem_base_widget.png" style="display:none"> 	 	 </div> </div><div class="element-consultant"> <div class="wrapper-display-more-info"> 	<div class="icon icon-plusinfo"></div> 	<div class="icon icon-voltar" style="display: none; top:6px"></div> </div> <div class="wrapper-consultant-picture"> 	<img src="Widget%20Natura_files/loader-busca.gif" class="lazy lazyavancada" data-original="https://aquitem.natura.net/api/v1/user/abigail.soares.96/picture" alt="" style="width:76px;"> </div> <div class="wrapper-consultant-basic-info"> 	<p> 		<span>Abigail Soares</span> 		Sorocaba-SP 	</p> </div> <div class="wrapper-consultant-additional-info"> 	<img class="imgdado_17432014" src="Widget%20Natura_files/imagem_base_widget.png" style="display:none"> 	 	 </div> </div><div class="element-consultant"> <div class="wrapper-display-more-info"> 	<div class="icon icon-plusinfo"></div> 	<div class="icon icon-voltar" style="display: none; top:6px"></div> </div> <div class="wrapper-consultant-picture"> 	<img src="Widget%20Natura_files/loader-busca.gif" class="lazy lazyavancada" data-original="https://aquitem.natura.net/api/v1/user/adelaide.loureiro.12/picture" alt="" style="width:76px;"> </div> <div class="wrapper-consultant-basic-info"> 	<p> 		<span>Adelaide Loureiro</span> 		Sorocaba-SP 	</p> </div> <div class="wrapper-consultant-additional-info"> 	<img class="imgdado_75623447" src="Widget%20Natura_files/imagem_base_widget.png" style="display:none"> 	 	 </div> </div><div class="element-consultant"> <div class="wrapper-display-more-info"> 	<div class="icon icon-plusinfo"></div> 	<div class="icon icon-voltar" style="display: none; top:6px"></div> </div> <div class="wrapper-consultant-picture"> 	<img src="Widget%20Natura_files/loader-busca.gif" class="lazy lazyavancada" data-original="https://aquitem.natura.net/api/v1/user/adenilza.luna/picture" alt="" style="width:76px;"> </div> <div class="wrapper-consultant-basic-info"> 	<p> 		<span>Adenilza Luna</span> 		Sorocaba-SP 	</p> </div> <div class="wrapper-consultant-additional-info"> 	<img class="imgdado_52303390" src="Widget%20Natura_files/imagem_base_widget.png" style="display:none"> 	 	 </div> </div><div class="element-consultant"> <div class="wrapper-display-more-info"> 	<div class="icon icon-plusinfo"></div> 	<div class="icon icon-voltar" style="display: none; top:6px"></div> </div> <div class="wrapper-consultant-picture"> 	<img src="Widget%20Natura_files/loader-busca.gif" class="lazy lazyavancada" data-original="https://aquitem.natura.net/api/v1/user/adriana.emidio.9/picture" alt="" style="width:76px;"> </div> <div class="wrapper-consultant-basic-info"> 	<p> 		<span>Adriana Emidio</span> 		Sorocaba-SP 	</p> </div> <div class="wrapper-consultant-additional-info"> 	<img class="imgdado_47341580" src="Widget%20Natura_files/imagem_base_widget.png" style="display:none"> 	 	 </div> </div><div class="element-consultant"> <div class="wrapper-display-more-info"> 	<div class="icon icon-plusinfo"></div> 	<div class="icon icon-voltar" style="display: none; top:6px"></div> </div> <div class="wrapper-consultant-picture"> 	<img src="Widget%20Natura_files/loader-busca.gif" class="lazy lazyavancada" data-original="https://aquitem.natura.net/api/v1/user/adriana.santos.6/picture" alt="" style="width:76px;"> </div> <div class="wrapper-consultant-basic-info"> 	<p> 		<span>Adriana Santos</span> 		Sorocaba-SP 	</p> </div> <div class="wrapper-consultant-additional-info"> 	<img class="imgdado_78251052" src="Widget%20Natura_files/imagem_base_widget.png" style="display:none"> 	 	 </div> </div><div class="element-consultant"> <div class="wrapper-display-more-info"> 	<div class="icon icon-plusinfo"></div> 	<div class="icon icon-voltar" style="display: none; top:6px"></div> </div> <div class="wrapper-consultant-picture"> 	<img src="Widget%20Natura_files/loader-busca.gif" class="lazy lazyavancada" data-original="https://www.revistanatura.com.br/assets/img/placeholders/profile-picture-placeholder.png" alt="" style="width:76px;"> </div> <div class="wrapper-consultant-basic-info"> 	<p> 		<span>Adriane S Cruz</span> 		Sorocaba-SP 	</p> </div> <div class="wrapper-consultant-additional-info"> 	<img class="imgdado_89858980" src="Widget%20Natura_files/imagem_base_widget.png" style="display:none"> 	 	 </div> </div><div class="element-consultant"> <div class="wrapper-display-more-info"> 	<div class="icon icon-plusinfo"></div> 	<div class="icon icon-voltar" style="display: none; top:6px"></div> </div> <div class="wrapper-consultant-picture"> 	<img src="Widget%20Natura_files/loader-busca.gif" class="lazy lazyavancada" data-original="https://www.revistanatura.com.br/assets/img/placeholders/profile-picture-placeholder.png" alt="" style="width:76px;"> </div> <div class="wrapper-consultant-basic-info"> 	<p> 		<span>Aldelaine</span> 		Sorocaba-SP 	</p> </div> <div class="wrapper-consultant-additional-info"> 	<img class="imgdado_92236669" src="Widget%20Natura_files/imagem_base_widget.png" style="display:none"> 	 	 </div> </div><div class="element-consultant"> <div class="wrapper-display-more-info"> 	<div class="icon icon-plusinfo"></div> 	<div class="icon icon-voltar" style="display: none; top:6px"></div> </div> <div class="wrapper-consultant-picture"> 	<img src="Widget%20Natura_files/loader-busca.gif" class="lazy lazyavancada" data-original="https://www.revistanatura.com.br/assets/img/placeholders/profile-picture-placeholder.png" alt="" style="width:76px;"> </div> <div class="wrapper-consultant-basic-info"> 	<p> 		<span>Aldely</span> 		Sorocaba-SP 	</p> </div> <div class="wrapper-consultant-additional-info"> 	<img class="imgdado_47624434" src="Widget%20Natura_files/imagem_base_widget.png" style="display:none"> 	 	 </div> </div><div class="element-consultant"> <div class="wrapper-display-more-info"> 	<div class="icon icon-plusinfo"></div> 	<div class="icon icon-voltar" style="display: none; top:6px"></div> </div> <div class="wrapper-consultant-picture"> 	<img src="Widget%20Natura_files/loader-busca.gif" class="lazy lazyavancada" data-original="https://aquitem.natura.net/api/v1/user/alessandra.almeidadossantos/picture" alt="" style="width:76px;"> </div> <div class="wrapper-consultant-basic-info"> 	<p> 		<span>Alessandra Almeida Fagundes</span> 		Sorocaba-SP 	</p> </div> <div class="wrapper-consultant-additional-info"> 	<img class="imgdado_20491085" src="Widget%20Natura_files/imagem_base_widget.png" style="display:none"> 	 	 </div> </div></div>
+				</div>
+			<div class="wrapper-pagination" style="display: block; margin-left: 14.5px;"><p class="element-previous disabled">Anterior</p><div class="element-pagination active">1</div><div class="element-pagination" onclick="BuscaAvancada('2')">2</div><div class="element-pagination" onclick="BuscaAvancada('3')">3</div><div class="element-pagination" onclick="BuscaAvancada('4')">4</div><div class="element-pagination" onclick="BuscaAvancada('5')">5</div><div class="element-pagination" onclick="BuscaAvancada('6')">6</div><span>...</span><div class="element-pagination" onclick="BuscaAvancada('20')">20</div><p class="element-next active" onclick="BuscaAvancada('2')">Próximo</p></div></div>
+
+			<div class="element-menu optout" name="por-optout">
+				<div class="wrapper-always-visible-data">
+					<h1>É consultor(a)? Clique Aqui</h1>
+					<div class="icon"></div>
+				</div>
+				<div class="wrapper-tab-content">
+					<div class="wrapper-consultants-scroller">
+						<p style="font-family:'gill_sans_std_light'; font-size: 0.9em; margin-left: 19px; margin-bottom: 7px; width: 89%;">Atualize seu cadastro para aparecer com maior precisão nos resultados de Busca:</p>
+						<a href="#" class="btnGlobal btnAtivar noselect btnSair" onclick="irPerfilNatura()" style="width:200px; margin-left: 62px;">CLIQUE AQUI</a>
+						<p style="float: left;font-family: gill_sans_std_light;font-size: 0.9em;margin-left: 19px;margin-top: 20px;width: 89%;margin-bottom: 9px;">Caso prefira não aparecer nos resultados de busca de consultores, <span style="cursor:pointer; color:#2c5146;font-weight: 600; font-family: gill_sans_std;" onclick="abreLogin()">clique aqui</span></p>
+						<div id="monta_login" style="display:none">
+							<input id="txtCodEmail" placeholder="acesse com seu código ou email" style="width: 85%;" type="text"><br>
+							<input id="txtSenhaCN" placeholder="senha" style="width: 85%; border: 1px solid #496c60; float: left; font-family: gill_sans_std_light; font-size: 0.75em; height: 23px; margin-bottom: 10px; margin-left: 20px; padding-left: 10px;" type="password"><br>
+							<input id="btnBuscar btnOptOut" value="enviar dados" style="margin-left: 20px; width:100px" onclick="doLogin()" type="button">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="element-menu natura-mais-perto" name="por-maisperto" style="display:none">
+				<div class="wrapper-always-visible-data">
+					<h1>Natura Mais Perto</h1>
+					<div class="icon icon-truck"></div>
+				</div>
+				<div class="wrapper-tab-content">
+					<p style="font-family:'gill_sans_std_light'; font-size: 0.9em; margin-left: 19px; margin-bottom: 15px; width: 86%;">Saiba mais sobre o Natura Mais perto e confira o roteiro de cidades e datas por onde o Truck Natura vai passar!</p>
+					<p style="text-transform: uppercase; font-family:'gill_sans_std'; font-size: 0.9em; margin-left: 19px; margin-bottom: 15px;">Calendário e Roteiro de Cidades</p>
+					<div class="wrapper-consultants-scroller-truck"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		var latitude = 0;
+		var longitude = 0;
+		var nivelZoom=15;
+		var raioMarks=3200;
+		var timeAnime=500;
+		var boPrimeiraVez = true;
+		var markers = [];
+		var markerLocation;
+		var directions = [];
+		var booGeo = false;
+		var booCalendarioLoaded = false;
+		var carregacnslocalizacao = true;
+
+//inicio dos elementos javascript
+var map;
+var geocoder  = new google.maps.Geocoder();
+var infowindow = new google.maps.InfoWindow({maxWidth: 320});
+var MyPosition;
+var MyCircle;
+var chkSelected = 'endereco';
+var numeroordenacaolocalizacao = 4;
+var textoordenacaolocalizacao = "Mais próximos";
+var numeroordenacaobusca = 1;
+var textoordenacaobusca = "Ordem alfabética";
+var numeroordenacaofb = 1;
+var textoordenacaofb = "Ordem alfabética";
+
+//para pesquisa por endereco
+var latpesquisa = '';
+var lngpesquisa = '';
+var iTentou = false;
+var booAlerta = false;
+
+var options = {
+	componentRestrictions: {country: "br"}
+};
+var inputEndereco = document.getElementById('txtBuscaEnderecoCN');
+var searchBox = new google.maps.places.Autocomplete((inputEndereco),options);
+var fbId = 0;
+var currentTab = '';
+var isFacebook = false;
+var isHTTPS = false;
+var signinWin;
+var sessaoid = 0;
+var btnLocalizacao = false;
+var PoLatLnggeo;
+
+var arrConsultoras = [];
+var loadedCaptcha = false;
+var currentidcn = 0;
+
+function setLocation(){
+	var latlng = new google.maps.LatLng(latitude,longitude);
+	var myOptions = {
+		backgroundColor: 'white',
+		center: latlng,
+		zoom: nivelZoom,
+		streetViewControl: false,
+		noClear: true,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		mapTypeControl: false,
+		navigationControl: true,
+		navigationControlOptions: {position: google.maps.ControlPosition.RIGHT, style: google.maps.NavigationControlStyle.SMALL}
+	};
+
+	if(carregacnslocalizacao){
+		map.setCenter(new google.maps.LatLng(latitude, longitude));
+		map.setZoom(15);
+
+		google.maps.event.addListener(map, 'tilesloaded', function(){loadMarkersLocation(0);});
+
+		PoLatLnggeo = new google.maps.LatLng(latitude, longitude);
+		var pointsImage = new google.maps.MarkerImage("https://www.revistanatura.com.br/html/assets/img/placeholders/pin-user.png");
+		var marker = new google.maps.Marker({
+			position: PoLatLnggeo,
+			map: map,
+			icon: pointsImage,
+			title: 'Sua localização',
+			zIndex: 2000,
+			animation: google.maps.Animation.DROP
+		});
+
+		markerLocation = marker;
+
+		if(isFacebook || isHTTPS){
+			map_recenter(marker.getPosition(),250,-152);
+		}
+
+		btnLocalizacao = true;
+
+		$('.busca-avancada').find('.wrapper-pagination').remove();
+		$('.busca-avancada').find('.wrapper-consultants-scroller-avancada').html('');
+		$('.por-amigos-do-facebook').find('.wrapper-pagination').remove();
+		$('.por-amigos-do-facebook').find('.wrapper-consultants-scroller').html('');
+	}else{
+		PoLatLnggeo = new google.maps.LatLng(latitude, longitude);
+		var pointsImage = new google.maps.MarkerImage("https://www.revistanatura.com.br/html/assets/img/placeholders/pin-user.png");
+		var marker = new google.maps.Marker({
+			position: PoLatLnggeo,
+			map: map,
+			icon: pointsImage,
+			title: 'Sua localização',
+			zIndex: 2000,
+			animation: google.maps.Animation.DROP
+		});
+
+		markerLocation = marker;
+
+//faz a ordenaçao
+carregacnslocalizacao = true;
+ordenaBusca(4, $(".masterlocaliza:eq(0)"));
+btnLocalizacao = true;
+$('.por-localizacao').find('.wrapper-pagination').remove();
+$('.por-localizacao').find('.wrapper-consultants-scroller').html('');
+}
+
+}
+
+function setEmptyLocation(){
+	var latlng = new google.maps.LatLng(-14.2400732,-53.1805018);
+	var myOptions = {
+		backgroundColor: 'white',
+		center: latlng,
+		zoom: 4,
+		streetViewControl: false,
+		noClear: true,
+		mapTypeId: google.maps.MapTypeId.ROADMAP,
+		mapTypeControl: false,
+		navigationControl: true,
+		navigationControlOptions: {position: google.maps.ControlPosition.RIGHT, style: google.maps.NavigationControlStyle.SMALL}
+	};
+
+//inicia o mapa
+map = new google.maps.Map(document.getElementById("gmapa"), myOptions);
+}
+
+//********************MAPA***************************
+function getLocation() {
+	booGeo = false;
+	if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(sucessPosition,showError, {timeout: 19000});
+	} else {
+		booGeo = true;
+//Geolocation is not supported by this browser.
+getAlternativeLocation();
+}
+
+var t = setTimeout(function () {
+	if(!booGeo){
+		booGeo = true;
+		getAlternativeLocation();
+	}
+}, 20000);
+}
+
+function sucessPosition(position) {
+	if(booGeo){
+		return false;
+	}
+	booGeo = true;
+	latitude = position.coords.latitude;
+	longitude = position.coords.longitude;
+
+	setLocation();
+}
+
+function getAlternativeLocation(){
+	$.ajax({
+		type: "GET",
+		url: backURL + "/localizacao/getgeobyip",
+		dataType: "json",
+		cache: false,
+		success: function (resultado) {
+
+			if(resultado.latitude == ''){
+				if(carregacnslocalizacao){
+					alert('Não foi possível obter sua localização. Faça uma busca Avançada utilizando o endereço desejado.');
+					carregacnslocalizacao = true;
+					boPrimeiraVez = false;
+					setEmptyLocation();
+				}else{
+					carregacnslocalizacao = true;
+					alert('Não foi possível obter sua localização para ordenar por proximidade.');
+					boPrimeiraVez = false;
+				}
+				$.unblockUI();
+				return false;
+			}
+
+			latitude = resultado.latitude;
+			longitude = resultado.longitude;
+			setLocation();
+			$.unblockUI();
+
+		},
+		error: function (objerror) {
+			TrataErroBackEnd(objerror);
+		},
+		timeout: 15000
+	});
+}
+
+function showError(error) {
+	booGeo = true;
+	getAlternativeLocation();
+}
+
+//CARREGANDO OS MARKERS
+function loadMarkersLocation(numpagina){
+	var tabela = '';
+	if(boPrimeiraVez){
+		loadblockUI();
+		limpaMarkers(null);
+		loadedCaptcha = false;
+		boPrimeiraVez = false;
+
+		var URLmetodo = backURL + "/localizacao/getcnbygeo";
+		if(!markerLocation){
+			var pointsImage = new google.maps.MarkerImage("https://www.revistanatura.com.br/html/assets/img/placeholders/pin-user.png");
+			var marker = new google.maps.Marker({
+				position: PoLatLnggeo,
+				map: map,
+				icon: pointsImage,
+				title: 'Sua localização',
+				zIndex: 2000,
+				animation: google.maps.Animation.DROP
+			});
+
+			markerLocation = marker;
+
+			if(isFacebook || isHTTPS){
+				map_recenter(marker.getPosition(),250,-152);
+			}
+		}
+
+		$.ajax({
+			type: "POST",
+			url: URLmetodo,
+			data: "&widget=true&latitude=" + latitude + "&longitude=" + longitude + '&numeroordenacao=' + numeroordenacaolocalizacao + '&numpagina=' + numpagina,
+			dataType:"json",
+			success: function(resultado){
+
+				if (resultado.dados.length == 0){
+					$(".por-localizacao .cnencontrado-total").html('0 consultores.');
+					$(".por-localizacao .totalencontrado").show();
+					alert("Nenhum(a) Consultor(a) Natura encontrado(a) nas proximidades.");
+					$.unblockUI();
+					return false;
+				}else{
+
+					if(isFacebook || isHTTPS){
+						map_recenter(new google.maps.LatLng(latitude, longitude),250,-152);
+					}else{
+						map.setCenter(new google.maps.LatLng(latitude, longitude));
+					}
+
+					map.setZoom(15);
+				}
+				var tplCN = '';
+
+				$.each(resultado.dados, function(num, val) {
+					if(val.latitude != ''){
+
+						var PoLatLng = new google.maps.LatLng(val.latitude, val.longitude);
+						var pointsImage = new google.maps.MarkerImage("https://www.revistanatura.com.br/html/assets/img/placeholders/pin-gmaps.png");
+						var marker = new google.maps.Marker({
+							position: PoLatLng,
+							map: map,
+							icon: pointsImage,
+							title: val.nome,
+							zIndex: 1+parseInt(num),
+							animation: google.maps.Animation.DROP
+						});
+
+						markers.push(marker);
+
+//MARKER
+var conteudo = '<div class="element-pin" style="height:' + ((val.fbid != '' && isFacebook) ? '343px' : '283px') + '"> \
+<div class="element-menu busca-avancada expanded"> \
+	<div class="wrapper-always-visible-data"> \
+		<h1> \
+			' + val.nome + ' \
+		</h1> \
+		<div class="close" onclick="fechaWindow()"> \
+			X \
+		</div> \
+	</div> \
+	<div class="wrapper-tab-content"> \
+		<div class="element-consultant"> \
+			<div class="wrapper-consultant-picture"> \
+				<img class="lazy lazypin" data-original="' + val.foto + '" alt="" style="width:76px;"> \
+			</div> \
+			<div class="wrapper-consultant-additional-info"> \
+				<p> \
+					' + val.cidade + '-' + val.estado + ' <br> \
+				</p> \
+				<img idcn="' + val.cd_cn + '" src="img/imagem_base_widget.png" style="display:none"> \
+			</div> \
+			' + ((val.fbid != '' && isFacebook) ? '<div class="btnAddFriend" fbid="' + val.fbid + '" onclick="addFriend(this)" style="display:none"></div>' : '') + ' \
+			' + ((val.fbid != '' && isFacebook) ? '<div class="btnContato" fbid="' + val.fbid + '" onclick="makeContato(this)" style="display:none"></div>' : '') + ' \
+		</div> \
+	</div> \
+</div> \
+</div> \
+</div>';
+
+
+google.maps.event.addListener(marker, 'click', function(){getInfoWindowEvent(marker,conteudo)});
+}
+
+arrConsultoras.push(val.cd_cn);
+var cidadeestado = '';
+cidadeestado = (val.cidade != '') ? val.cidade + '-' + val.estado : '';
+
+tplCN += '<div class="element-consultant"> \
+<div class="wrapper-display-more-info"> \
+	<div class="icon icon-plusinfo"></div> \
+	<div class="icon icon-voltar" style="display: none; top:6px"></div> \
+</div> \
+<div class="wrapper-consultant-picture"> \
+	<img class="lazy lazylocalizacao" data-original="' + val.foto + '" alt="" style="width:76px;"> \
+</div> \
+<div class="wrapper-consultant-basic-info"> \
+	<p> \
+		<span>' + val.nome + '</span> \
+		' + cidadeestado + ' \
+	</p> \
+</div> \
+<div class="wrapper-consultant-additional-info"> \
+	<img class="imgdado_' + val.cd_cn + '" src="img/imagem_base_widget.png" style="display:none"> \
+	' + ((val.fbid != '' && isFacebook) ? '<div class="btnAddFriend" fbid="' + val.fbid + '" style="margin-top:5px;display:none" onclick="addFriend(this)"></div>' : '') + ' \
+	' + ((val.fbid != '' && isFacebook) ? '<div class="btnContato" fbid="' + val.fbid + '" onclick="makeContato(this)" style="display:none"></div>' : '') + ' \
+</div> \
+</div>';
+});
+
+
+				$('.por-localizacao').find('.wrapper-pagination').remove();
+				$('.por-localizacao').find('.wrapper-consultants-scroller').html(getOrdenarHTML() + tplCN);
+				$('.por-localizacao').append('<div class="wrapper-pagination" style="display: block;">' + resultado.paginacao + '</div>');
+				$(".por-localizacao .wrapper-pagination").css('margin-left', (350 - $(".por-localizacao .wrapper-pagination").width()) / 2);
+
+				$(".por-localizacao .cnencontrado-total").html(resultado.qtdcn + ' consultores.');
+				$(".por-localizacao .totalencontrado").show();
+
+				$(".wrapper-consultants-scroller").scrollTo(0, 800, {easing:'easeOutCirc'} );
+
+				$('.por-localizacao').find('#wrapper-ordenar p').on('click', function(){
+
+					if(!$(this).hasClass('aberto')){
+						$('.por-localizacao').find('.ordenar').show();
+						$(this).addClass('aberto');
+					}else{
+						$('.por-localizacao').find('.ordenar').hide();
+						$(this).removeClass('aberto');
+					}
+
+				});
+
+				$("img.lazy.lazylocalizacao").lazyload({
+					effect : "fadeIn",
+					container: $('.por-localizacao').find('.wrapper-consultants-scroller'),
+					placeholder: "https://www.revistanatura.com.br/html/assets/img/placeholders/loader-busca.gif",
+					error : function()
+					{
+						$(this).attr('src','https://www.revistanatura.com.br/assets/img/placeholders/profile-picture-placeholder.png');
+					}
+				});
+
+				$('.por-localizacao').find('.icon-voltar').on('click', function(){
+					$(this).parent().parent().removeClass('expanded');
+					$(this).parent().find('.icon-voltar').hide();
+					$(this).parent().find('.icon-plusinfo').show();
+					$(".form-horizontal").remove();
+				});
+
+				$('.por-localizacao').find('.icon-plusinfo').on('click', function(){
+					if(!loadedCaptcha){
+						infowindow.close();
+						$('.por-localizacao').find('.icon-voltar').click();
+						$(".form-horizontal").remove();
+						$(this).parent().parent().find('.wrapper-consultant-additional-info').append(montaCaptcha());
+						loadCaptcha();
+
+						$(".wrapper-consultants-scroller").scrollTo( $(this), 800, {easing:'easeOutCirc'} );
+					}
+					$(this).parent().parent().addClass('expanded');
+					$(this).parent().find('.icon-voltar').show();
+					$(this).parent().find('.icon-plusinfo').hide();
+				});
+
+				$.unblockUI();
+			},
+			error: function(objerror){
+				TrataErroBackEnd(objerror);
+			},
+			timeout: 15000
+		});
+}
+}
+
+function BuscaAvancada(numpagina, pularlat){
+	var objdata = '';
+	var tabela = '';
+
+
+	loadblockUI();
+
+	if(chkSelected == 'nome'){
+		if($("#txtBuscaCN").val().length < 4){
+			alert('Informe mais de três caracteres para efetuar uma pesquisa por nome.');
+			$("#txtBuscaCN").focus();
+			$.unblockUI();
+			return false;
+		}
+	}else if(chkSelected == 'email'){
+		if(!validaEmail($("#txtBuscaCN").val())){
+			alert('Favor digitar um email válido.');
+			$("#txtBuscaCN").focus();
+			$.unblockUI();
+			return false;
+		}
+	}else if(chkSelected == 'endereco'){
+		if($("#txtBuscaEnderecoCN").val().length < 4){
+			alert('Informe mais de três caracteres para efetuar uma pesquisa por endereço.');
+			$("#txtBuscaEnderecoCN").focus();
+			$.unblockUI();
+			return false;
+		}
+	}
+
+	if(chkSelected == 'endereco'){
+		if(numpagina == 0){
+			if(!pularlat){
+				var places = searchBox.getPlace();
+
+				if(typeof places == 'undefined' || typeof $(places).attr('formatted_address') == 'undefined'){
+					var address = $('#txtBuscaEnderecoCN').val();
+					if($.isNumeric(address)){
+						if(address.length == 8){
+							address = address.substring(0, 5) + '-' + address.substring(5);
+						}
+					}
+					geocoder.geocode( { 'address': address}, function(results, status) {
+
+						if (status == google.maps.GeocoderStatus.OK)
+						{
+							latpesquisa = results[0].geometry.location.lat();
+							lngpesquisa = results[0].geometry.location.lng();
+							BuscaAvancada(0, true);
+						}else{
+							alert('Endereço não encontrado');
+							$.unblockUI();
+							return;
+						}
+					});
+					return false;
+				}else{
+
+					if (places.length == 0) {
+						alert('Endereço não encontrado');
+						$.unblockUI();
+						return;
+					}
+
+					latpesquisa = places.geometry.location.lat();
+					lngpesquisa = places.geometry.location.lng();
+				}
+			}
+		}
+
+		objdata = chkSelected + '=' + encodeURIComponent($("#txtBuscaEnderecoCN").val()) + '&numeroordenacao=' + numeroordenacaobusca + "&latitude=" + latitude + "&longitude=" + longitude + '&numpagina=' + numpagina + '&latpesquisa=' + latpesquisa + '&lngpesquisa=' + lngpesquisa;
+
+		if($("#txtBuscaEnderecoCN").val().length == 0){
+			alert('Favor preencher o campo de pesquisa.');
+			$("#txtBuscaCN").focus();
+			$.unblockUI();
+			return false;
+		}
+	}else{
+		objdata = chkSelected + '=' + encodeURIComponent($("#txtBuscaCN").val()) + '&numeroordenacao=' + numeroordenacaobusca + "&latitude=" + latitude + "&longitude=" + longitude + '&numpagina=' + numpagina + '&latpesquisa=' + latpesquisa + '&lngpesquisa=' + lngpesquisa;
+
+		if($("#txtBuscaCN").val().length == 0){
+			alert('Favor preencher o campo de pesquisa.');
+			$("#txtBuscaCN").focus();
+			$.unblockUI();
+			return false;
+		}
+	}
+
+	limpaMarkers(null);
+	loadedCaptcha = false;
+
+	if(chkSelected == 'endereco'){
+		var PoLatLng = new google.maps.LatLng(latpesquisa, lngpesquisa);
+		var pointsImage = new google.maps.MarkerImage("https://www.revistanatura.com.br/html/assets/img/placeholders/pin-user.png");
+		var marker = new google.maps.Marker({
+			position: PoLatLng,
+			map: map,
+			icon: pointsImage,
+			title: 'Local pesquisa',
+			zIndex: 2000,
+			animation: google.maps.Animation.DROP
+		});
+
+
+		map.setZoom(13);
+		if(isFacebook || isHTTPS){
+			map_recenter(marker.getPosition(),250,-152);
+		}else{
+			map.setCenter(marker.getPosition());
+		}
+
+		markers.push(marker);
+	}
+
+	var URLmetodo = backURL + "/localizacao/getcnbusca";
+
+	$.ajax({
+		type: "POST",
+		url: URLmetodo,
+		data: '&widget=true&' + objdata,
+		dataType:"json",
+		success: function(resultado){
+			if (resultado.dados.length == 0){
+				$(".busca-avancada .cnencontrado-total").html('0 consultores.');
+				$(".busca-avancada .totalencontrado").show();
+				alert("Nenhum(a) Consultor(a) Natura encontrado(a).");
+				$.unblockUI();
+				return false;
+			}else{
+				if(chkSelected != 'endereco'){
+//centralizando no mapa
+map.setCenter(new google.maps.LatLng(-14.2400732,-53.1805018));
+map.setZoom(4);
+}
+}
+var tplCN = '';
+
+$.each(resultado.dados, function(num, val) {
+	if(val.latitude != ''){
+
+		var PoLatLng = new google.maps.LatLng(val.latitude, val.longitude);
+		var pointsImage = new google.maps.MarkerImage("https://www.revistanatura.com.br/html/assets/img/placeholders/pin-gmaps.png");
+		var marker = new google.maps.Marker({
+			position: PoLatLng,
+			map: map,
+			icon: pointsImage,
+			title: val.nome,
+			zIndex: 1+parseInt(num),
+			animation: google.maps.Animation.DROP
+		});
+
+		markers.push(marker);
+
+//MARKER
+var conteudo = '<div class="element-pin" style="height:' + ((val.fbid != '' && isFacebook) ? '343px' : '283px') + '"> \
+<div class="element-menu busca-avancada expanded"> \
+	<div class="wrapper-always-visible-data"> \
+		<h1> \
+			' + val.nome + ' \
+		</h1> \
+		<div class="close" onclick="fechaWindow()"> \
+			X \
+		</div> \
+	</div> \
+	<div class="wrapper-tab-content"> \
+		<div class="element-consultant"> \
+			<div class="wrapper-consultant-picture"> \
+				<img class="lazy lazypin" data-original="' + val.foto + '" alt="" style="width:76px;"> \
+			</div> \
+			<div class="wrapper-consultant-additional-info"> \
+				<p> \
+					' + val.cidade + '-' + val.estado + ' <br> \
+				</p> \
+				<img idcn="' + val.cd_cn + '" src="img/imagem_base_widget.png" style="display:none"> \
+				' + ((val.fbid != '' && isFacebook) ? '<div class="btnAddFriend" fbid="' + val.fbid + '" onclick="addFriend(this)" style="display:none"></div>' : '') + ' \
+				' + ((val.fbid != '' && isFacebook) ? '<div class="btnContato" fbid="' + val.fbid + '" onclick="makeContato(this)" style="display:none"></div>' : '') + ' \
+			</div> \
+		</div> \
+	</div> \
+</div> \
+</div> \
+</div>';
+
+
+google.maps.event.addListener(marker, 'click', function(){getInfoWindowEvent(marker,conteudo)});
+}
+
+arrConsultoras.push(val.cd_cn);
+
+var cidadeestado = '';
+cidadeestado = (val.cidade != '') ? val.cidade + '-' + val.estado : '';
+
+tplCN += '<div class="element-consultant"> \
+<div class="wrapper-display-more-info"> \
+	<div class="icon icon-plusinfo"></div> \
+	<div class="icon icon-voltar" style="display: none; top:6px"></div> \
+</div> \
+<div class="wrapper-consultant-picture"> \
+	<img class="lazy lazyavancada" data-original="' + val.foto + '" alt="" style="width:76px;"> \
+</div> \
+<div class="wrapper-consultant-basic-info"> \
+	<p> \
+		<span>' + val.nome + '</span> \
+		' + cidadeestado + ' \
+	</p> \
+</div> \
+<div class="wrapper-consultant-additional-info"> \
+	<img class="imgdado_' + val.cd_cn + '" src="img/imagem_base_widget.png" style="display:none"> \
+	' + ((val.fbid != '' && isFacebook) ? '<div class="btnAddFriend" fbid="' + val.fbid + '" style="margin-top:5px;display:none" onclick="addFriend(this)"></div>' : '') + ' \
+	' + ((val.fbid != '' && isFacebook) ? '<div class="btnContato" fbid="' + val.fbid + '" onclick="makeContato(this)" style="display:none"></div>' : '') + ' \
+</div> \
+</div>';
+});
+
+
+$('.busca-avancada').find('.wrapper-pagination').remove();
+$('.busca-avancada').find('.wrapper-consultants-scroller-avancada').html(getOrdenarHTML() + tplCN);
+$('.busca-avancada').append('<div class="wrapper-pagination" style="display: block;">' + resultado.paginacao + '</div>');
+$(".busca-avancada .wrapper-pagination").css('margin-left', (350 - $(".busca-avancada .wrapper-pagination").width()) / 2);
+
+$(".busca-avancada .cnencontrado-total").html(resultado.qtdcn + ' consultores.');
+$(".busca-avancada .totalencontrado").show();
+
+$(".wrapper-consultants-scroller-avancada").scrollTo(0, 800, {easing:'easeOutCirc'} );
+
+$('.busca-avancada').find('#wrapper-ordenar p').on('click', function(){
+	if(!$(this).hasClass('aberto')){
+		$('.busca-avancada').find('.ordenar').show();
+		$(this).addClass('aberto');
+	}else{
+		$('.busca-avancada').find('.ordenar').hide();
+		$(this).removeClass('aberto');
+	}
+});
+
+$("img.lazy.lazyavancada").lazyload({
+	effect : "fadeIn",
+	container: $('.busca-avancada').find('.wrapper-consultants-scroller-avancada'),
+	placeholder: "https://www.revistanatura.com.br/html/assets/img/placeholders/loader-busca.gif",
+	error : function()
+	{
+		$(this).attr('src','https://www.revistanatura.com.br/assets/img/placeholders/profile-picture-placeholder.png');
+	}
+});
+
+$('.busca-avancada').find('.icon-voltar').on('click', function(){
+	$(this).parent().parent().removeClass('expanded');
+	$(this).parent().find('.icon-voltar').hide();
+	$(this).parent().find('.icon-plusinfo').show();
+	$(".form-horizontal").remove();
+});
+
+$('.busca-avancada').find('.icon-plusinfo').on('click', function(){
+	if(!loadedCaptcha){
+		infowindow.close();
+		$('.busca-avancada').find('.icon-voltar').click();
+		$(".form-horizontal").remove();
+		$(this).parent().parent().find('.wrapper-consultant-additional-info').append(montaCaptcha());
+		loadCaptcha();
+
+		$(".wrapper-consultants-scroller-avancada").scrollTo( $(this), 800, {easing:'easeOutCirc'} );
+	}
+
+	$(this).parent().parent().addClass('expanded');
+	$(this).parent().find('.icon-voltar').show();
+	$(this).parent().find('.icon-plusinfo').hide();
+});
+
+$.unblockUI();
+
+},
+error: function(objerror){
+	TrataErroBackEnd(objerror);
+},
+timeout: 15000
+});
+}
+
+function getAmigosFB(numpagina){
+	loadblockUI();
+
+	tabela = "";
+	limpaMarkers(null);
+	loadedCaptcha = false;
+
+	var URLmetodo = backURL + "/localizacao/getfriendssessaofb";
+	$.ajax({
+		type: "POST",
+		url: URLmetodo,
+		data: "&widget=true&latitude=" + latitude + "&longitude=" + longitude + '&numeroordenacao=' + numeroordenacaofb + '&numpagina=' + numpagina + "&fbid=" + fbId + "&sessaoid=" + sessaoid,
+		dataType: "json",
+		cache: false,
+		success: function (resultado) {
+
+			if (resultado.dados.length == 0){
+				if(resultado.ufbid != ""){
+					$(".por-amigos-facebook .cnencontrado-total").html('0 consultores.');
+					$(".por-amigos-facebook .totalencontrado").show();
+					$(".element-fb").hide();
+					$(".por-amigos-do-facebook").addClass("expanded");
+					fbId = resultado.ufbid;
+					alert("Nenhum Consultor(a) Natura encontrado(a) entre seus amigos. Faça uma busca Avançada ou por Localização.");
+					$.unblockUI();
+					return false;
+				}else{
+					$.unblockUI();
+					return false;
+				}
+			}else{
+				$(".por-amigos-facebook .cnencontrado-total").html(resultado.dados.length + ' consultores.');
+				$(".por-amigos-facebook .totalencontrado").show();
+				$(".element-fb").hide();
+				$(".por-amigos-do-facebook").addClass("expanded");
+				fbId = resultado.ufbid;
+				if(isFacebook || isHTTPS){
+					map_recenter(new google.maps.LatLng(-14.2400732,-53.1805018),250,-152);
+				}else{
+					map.setCenter(new google.maps.LatLng(-14.2400732,-53.1805018));
+				}
+				map.setZoom(4);
+			}
+
+			var tplCN = '';
+			$.each(resultado.dados, function(num, val) {
+				if(val.latitude != ''){
+
+					var PoLatLng = new google.maps.LatLng(val.latitude, val.longitude);
+					var pointsImage = new google.maps.MarkerImage("https://www.revistanatura.com.br/html/assets/img/placeholders/pin-gmaps.png");
+					var marker = new google.maps.Marker({
+						position: PoLatLng,
+						map: map,
+						icon: pointsImage,
+						title: val.nome,
+						zIndex: 1+parseInt(num),
+						animation: google.maps.Animation.DROP
+					});
+
+					markers.push(marker);
+
+//MARKER
+var conteudo = '<div class="element-pin" style="height:' + ((val.fbid != '' && isFacebook) ? '343px' : '283px') + '"> \
+<div class="element-menu por-amigos-do-facebook expanded"> \
+	<div class="wrapper-always-visible-data"> \
+		<h1> \
+			' + val.nome + ' \
+		</h1> \
+		<div class="close" onclick="fechaWindow()"> \
+			X \
+		</div> \
+	</div> \
+	<div class="wrapper-tab-content"> \
+		<div class="element-consultant"> \
+			<div class="wrapper-consultant-picture"> \
+				<img class="lazy lazypin" data-original="' + val.foto + '" alt="" style="width:76px;"> \
+			</div> \
+			<div class="wrapper-consultant-additional-info"> \
+				<p> \
+					' + val.cidade + '-' + val.estado + ' <br> \
+				</p> \
+				<img idcn="' + val.cd_cn + '" src="img/imagem_base_widget.png" style="display:none"> \
+			</div> \
+			' + ((val.fbid != '' && isFacebook) ? '<div class="btnAddFriend" fbid="' + val.fbid + '" onclick="addFriend(this)" style="display:none"></div>' : '') + ' \
+			' + ((val.fbid != '' && isFacebook) ? '<div class="btnContato" fbid="' + val.fbid + '" onclick="makeContato(this)" style="display:none"></div>' : '') + ' \
+		</div> \
+	</div> \
+</div> \
+</div> \
+</div>';
+google.maps.event.addListener(marker, 'click', function(){getInfoWindowEvent(marker,conteudo)});
+}
+
+arrConsultoras.push(val.cd_cn);
+var cidadeestado = '';
+cidadeestado = (val.cidade != '') ? val.cidade + '-' + val.estado : '';
+
+tplCN += '<div class="element-consultant"> \
+<div class="wrapper-display-more-info"> \
+	<div class="icon icon-plusinfo"></div> \
+	<div class="icon icon-voltar" style="display: none; top:6px"></div> \
+</div> \
+<div class="wrapper-consultant-picture"> \
+	<img class="lazy lazyfacebook" data-original="' + val.foto + '" alt="" style="width:76px;"> \
+</div> \
+<div class="wrapper-consultant-basic-info"> \
+	<p> \
+		<span>' + val.nome + '</span> \
+		' + cidadeestado + ' \
+	</p> \
+</div> \
+<div class="wrapper-consultant-additional-info"> \
+	<img class="imgdado_' + val.cd_cn + '" src="img/imagem_base_widget.png" style="display:none"> \
+	' + ((val.fbid != '' && isFacebook) ? '<div class="btnAddFriend" fbid="' + val.fbid + '" style="margin-top:5px;display:none" onclick="addFriend(this)"></div>' : '') + ' \
+	' + ((val.fbid != '' && isFacebook) ? '<div class="btnContato" fbid="' + val.fbid + '" onclick="makeContato(this)" style="display:none"></div>' : '') + ' \
+</div> \
+</div>';
+});
+			$('.por-amigos-do-facebook').find('.wrapper-pagination').remove();
+			$('.por-amigos-do-facebook').find('.wrapper-consultants-scroller').html(getOrdenarHTML() + tplCN);
+			$('.por-amigos-do-facebook').append('<div class="wrapper-pagination" style="display: block;">' + resultado.paginacao + '</div>');
+			$(".por-amigos-do-facebook .wrapper-pagination").css('margin-left', (350 - $(".por-amigos-do-facebook .wrapper-pagination").width()) / 2);
+			$(".por-amigos-facebook .cnencontrado-total").html(resultado.dados.length + ' consultores.');
+			$(".por-amigos-facebook .totalencontrado").show();
+			$(".wrapper-consultants-scroller").scrollTo(0, 800, {easing:'easeOutCirc'} );
+			$('.por-amigos-do-facebook').find('#wrapper-ordenar p').on('click', function(){
+
+				if(!$(this).hasClass('aberto')){
+					$('.por-amigos-do-facebook').find('.ordenar').show();
+					$(this).addClass('aberto');
+				}else{
+					$('.por-amigos-do-facebook').find('.ordenar').hide();
+					$(this).removeClass('aberto');
+				}
+			});
+			$("img.lazy.lazyfacebook").lazyload({
+				effect : "fadeIn",
+				container: $('.por-amigos-do-facebook').find('.wrapper-consultants-scroller'),
+				placeholder: "https://www.revistanatura.com.br/html/assets/img/placeholders/loader-busca.gif",
+				error : function()
+				{
+					$(this).attr('src','https://www.revistanatura.com.br/assets/img/placeholders/profile-picture-placeholder.png');
+				}
+			});
+
+			$('.por-amigos-do-facebook').find('.icon-voltar').on('click', function(){
+				$(this).parent().parent().removeClass('expanded');
+				$(this).parent().find('.icon-voltar').hide();
+				$(this).parent().find('.icon-plusinfo').show();
+				$(".form-horizontal").remove();
+			});
+
+			$('.por-amigos-do-facebook').find('.icon-plusinfo').on('click', function(){
+				if(!loadedCaptcha){
+					infowindow.close();
+					$('.por-amigos-do-facebook').find('.icon-voltar').click();
+					$(".form-horizontal").remove();
+					$(this).parent().parent().find('.wrapper-consultant-additional-info').append(montaCaptcha());
+					loadCaptcha();
+
+					$(".wrapper-consultants-scroller").scrollTo( $(this), 800, {easing:'easeOutCirc'} );
+				}
+
+				$(this).parent().parent().addClass('expanded');
+				$(this).parent().find('.icon-voltar').show();
+				$(this).parent().find('.icon-plusinfo').hide();
+			});
+
+			$.unblockUI();
+		},
+		error: function (objerror) {
+			$("#msgfacebook").show();
+			$.unblockUI();
+		},
+		timeout: 15000
+	});
+}
+
+function getNaturaMaisPerto(){
+	loadblockUI();
+	tabela = "";
+	limpaMarkers(null);
+	var URLmetodo = backURL + "/geral/calendarionaturamaisperto";
+
+	var html = '';
+	var linhaPresente = 0;
+	$.ajax({
+		type: "GET",
+		url: URLmetodo,
+		dataType: "json",
+		cache: false,
+		success: function (resultado) {
+			$.each(resultado.calendario, function(num, val) {
+				html += '<div><div class="wrapper-always-visible-data ' + val.statusperiodo + ' noselect" id="' + num + '" style="cursor:pointer"> \
+				<h2>' + val.periodo + ' - ' + val.cidade + ' - ' + val.estado + '</h2> \
+				<div class="icondatatruck icon-voltar-truck rotate-close" style="margin-right:-3px; margin-top: 10px;"></div> \
+			</div><div class="wrapper-tab-content-truck" style="display:none"><span class="' + val.statusperiodo + '">' + val.endereco + '</span></div></div>';
+
+			if(val.statusperiodo == 'present expanded'){
+				linhaPresente = num;
+			}
+		});
+
+			$('.natura-mais-perto').find('.wrapper-consultants-scroller-truck').html(html);
+
+			$('.natura-mais-perto').find('.wrapper-always-visible-data').on('click', function(){
+				if(!$(this).hasClass('aberto')){
+
+					$(this).parent().parent().find(".wrapper-tab-content-truck").hide();
+					$(this).parent().parent().find(".icondatatruck").addClass('rotate-close');
+					$(this).parent().parent().find(".icondatatruck").removeClass('rotate-open');
+					$(this).parent().parent().find(".wrapper-always-visible-data").removeClass('aberto');
+
+					$(this).parent().find(".wrapper-tab-content-truck").show();
+					$(this).find(".icondatatruck").removeClass('rotate-close');
+					$(this).find(".icondatatruck").addClass('rotate-open');
+					$(this).addClass('aberto');
+				}else{
+					$(this).parent().parent().find(".icondatatruck").addClass('rotate-close');
+					$(this).parent().parent().find(".icondatatruck").removeClass('rotate-open');
+
+					$(this).parent().find(".wrapper-tab-content-truck").hide();
+					$(this).removeClass('aberto');
+				}
+			});
+
+			if(linhaPresente != 0){
+				if(!isFacebook){
+					$('.wrapper-consultants-scroller-truck').animate({
+						scrollTop: $("#" + linhaPresente).offset().top - 418
+					}, 500);
+				}else{
+					$('.wrapper-consultants-scroller-truck').animate({
+						scrollTop: $("#" + linhaPresente).offset().top - 618
+					}, 500);
+				}
+
+				$("#" + linhaPresente).parent().find('.wrapper-always-visible-data').click();
+			}
+
+			controleRota(resultado.calendario);
+
+			$.unblockUI();
+		},
+		error: function (objerror) {
+			TrataErroBackEnd(objerror);
+		},
+		timeout: 15000
+	});
+
+	var URLmetodo = backURL + "/geral/localnaturamaisperto";
+	$.ajax({
+		type: "GET",
+		url: URLmetodo,
+		dataType: "json",
+		cache: false,
+		success: function (resultado) {
+			if(resultado != ""){
+				var PoLatLng = new google.maps.LatLng(resultado.latitude, resultado.longitude);
+				var pointsImage = new google.maps.MarkerImage("https://www.revistanatura.com.br/html/assets/img/placeholders/pin-gmaps_bus_compressed.png");
+				var marker = new google.maps.Marker({
+					position: PoLatLng,
+					map: map,
+					icon: pointsImage,
+					title: "Natura Mais Perto - " + resultado.datahora,
+					zIndex: 1
+				});
+
+				markers.push(marker);
+				map.setCenter(marker.getPosition());
+				map.setZoom(15);
+			}else{
+				booAlerta = true;
+			}
+
+			$.unblockUI();
+
+		},
+		error: function (objerror) {
+			TrataErroBackEnd(objerror);
+		},
+		timeout: 15000
+	});
+}
+
+function getOrdenarHTML(){
+	var html = '';
+	if(currentTab == 'por-facebookx'){
+		html = '<div class="totalencontrado" style="display:none; height: 24px; margin-left:20px;"><span class="cnencontrado">Foram encontrados <span class="cnencontrado-total"> </span> </span></div> \
+		<div style="width:100%"><div style="display: block; float: left; margin-left: 20px; width: 97px; margin-top: 5px;">Ordenar por: </div><div id="wrapper-ordenar" style="width:152px"> \
+		<p class="noselect"> \
+			' + textoordenacaofb + ' \
+			<icon class="icon-down"></icon> \
+		</p> \
+		<div class="ordenar masterlocaliza" style="display: none;"> \
+			<div class="element" ' + ((numeroordenacaofb == '4') ? 'style="font-weight:bold"' : '') + ' target="mais-proximas" onclick="ordenaFB(4, this);"> \
+				Mais próximos \
+			</div> \
+			<div class="element" ' + ((numeroordenacaofb == '1') ? 'style="font-weight:bold"' : '') + ' target="ordem-alfabetica" onclick="ordenaFB(1, this);"> \
+				Ordem alfabética \
+			</div> \
+			<div class="element" ' + ((numeroordenacaofb == '2') ? 'style="font-weight:bold"' : '') + ' target="estado" onclick="ordenaFB(2, this);"> \
+				Estado \
+			</div> \
+		</div> \
+	</div></div>';
+}else if(currentTab == 'por-localizacao'){
+	html = '<div class="totalencontrado" style="display:none; height: 24px; margin-left:20px;"><span class="cnencontrado">Foram encontrados <span class="cnencontrado-total"> </span> </span></div> \
+	<div style="width:100%"><div style="display: block; float: left; margin-left: 20px; width: 97px; margin-top: 5px;">Ordenar por: </div><div id="wrapper-ordenar" style="width:152px"> \
+	<p class="noselect"> \
+		' + textoordenacaolocalizacao + ' \
+		<icon class="icon-down"></icon> \
+	</p> \
+	<div class="ordenar masterlocaliza" style="display: none;"> \
+		<div class="element" ' + ((numeroordenacaolocalizacao == '4') ? 'style="font-weight:bold"' : '') + ' target="mais-proximas" onclick="ordenaLocaliza(4, this);"> \
+			Mais próximos \
+		</div> \
+		<div class="element" ' + ((numeroordenacaolocalizacao == '1') ? 'style="font-weight:bold"' : '') + ' target="ordem-alfabetica" onclick="ordenaLocaliza(1, this);"> \
+			Ordem alfabética \
+		</div> \
+		<div class="element" ' + ((numeroordenacaolocalizacao == '2') ? 'style="font-weight:bold"' : '') + ' target="estado" onclick="ordenaLocaliza(2, this);"> \
+			Estado \
+		</div> \
+	</div> \
+</div></div>';
+}else if(currentTab == 'por-avancada'){
+	html = '<div class="totalencontrado" style="display:none; height: 24px; margin-left:20px;"><span class="cnencontrado">Foram encontrados <span class="cnencontrado-total"> </span> </span></div> \
+	<div style="width:100%"><div style="display: block; float: left; margin-left: 20px; width: 97px; margin-top: 5px;">Ordenar por: </div><div id="wrapper-ordenar" style="width:152px"> \
+	<p class="noselect"> \
+		' + textoordenacaobusca + ' \
+		<icon class="icon-down"></icon> \
+	</p> \
+	<div class="ordenar masterlocaliza" style="display: none;"> \
+		<div class="element" ' + ((numeroordenacaobusca == '4') ? 'style="font-weight:bold"' : '') + ' target="mais-proximas" onclick="ordenaBusca(4, this);"> \
+			Mais próximos \
+		</div> \
+		<div class="element" ' + ((numeroordenacaobusca == '1') ? 'style="font-weight:bold"' : '') + ' target="ordem-alfabetica" onclick="ordenaBusca(1, this);"> \
+			Ordem alfabética \
+		</div> \
+		<div class="element" ' + ((numeroordenacaobusca == '2') ? 'style="font-weight:bold"' : '') + ' target="estado" onclick="ordenaBusca(2, this);"> \
+			Estado \
+		</div> \
+	</div> \
+</div></div>';
+}
+return html;
+}
+
+function map_recenter(latlng,offsetx,offsety) {
+	var point1 = map.getProjection().fromLatLngToPoint(
+		(latlng instanceof google.maps.LatLng) ? latlng : map.getCenter()
+		);
+	var point2 = new google.maps.Point(
+		( (typeof(offsetx) == 'number' ? offsetx : 0) / Math.pow(2, map.getZoom()) ) || 0,
+		( (typeof(offsety) == 'number' ? offsety : 0) / Math.pow(2, map.getZoom()) ) || 0
+		);
+	map.panTo(map.getProjection().fromPointToLatLng(new google.maps.Point(
+		point1.x - point2.x,
+		point1.y + point2.y
+		)));
+}
+
+function getInfoWindowEvent(marker, html) {
+	infowindow.close();
+	infowindow.setOptions({maxWidth:320});
+	infowindow.setContent(html);
+
+	infowindow.open(map, marker);
+	if(isFacebook || isHTTPS){
+		map_recenter(marker.getPosition(),250,-152);
+	}else{
+		map.panTo(marker.getPosition());
+	}
+
+	$("img.lazy.lazypin").lazyload({
+		effect : "fadeIn",
+		container: $('.element-consultant'),
+		placeholder: "https://www.revistanatura.com.br/html/assets/img/placeholders/loader-busca.gif",
+		error : function()
+		{
+			$(this).attr('src','https://www.revistanatura.com.br/assets/img/placeholders/profile-picture-placeholder.png');
+		}
+	});
+
+	var imagmarker = $(".gm-style-iw").find('.element-pin').find('.wrapper-consultant-additional-info').find('img');
+	currentidcn = $(imagmarker).attr('idcn');
+
+	if(!loadedCaptcha){
+		$(imagmarker).hide();
+		$('.busca-avancada').find('.icon-voltar').click();
+		$(".form-horizontal").remove();
+		$(".gm-style-iw").find('.element-pin').find('.wrapper-consultant-additional-info').append(montaCaptchaMarker());
+		loadCaptcha();
+	}else{
+		$('.btnAddFriend').show();
+		$('.btnContato').show();
+		$(imagmarker).attr('src',$(".imgdado_" + currentidcn).attr('src'));
+		$(imagmarker).css('margin-left','-14px');
+		$(imagmarker).show();
+	}
+
+	$(".gm-style-iw").parent().addClass('removelateralinfowindow');
+	$(".gm-style-iw").next("div").hide();
+}
+
+function ordenaBusca(numeroordena, obj){
+
+	if(numeroordena == 4){
+		if(latitude == '' || latitude == '0'){
+			loadblockUI();
+			carregacnslocalizacao = false;
+			getLocation();
+			return false;
+		}
+	}
+
+	$(".busca-avancada").find('.masterlocaliza  .element').css('font-weight','');
+	$(obj).css('font-weight','bold');
+
+	if(numeroordena == "1"){
+		textoordenacaobusca = "Ordem alfabética";
+	}else if(numeroordena == "2"){
+		textoordenacaobusca = "Estado";
+	}else if(numeroordena == "4"){
+		textoordenacaobusca = "Mais próximos";
+	}
+
+	numeroordenacaobusca = numeroordena;
+	loadblockUI();
+	btnBuscar.click();
+}
+
+function ordenaFB(numeroordena, obj){
+	if(numeroordena == 4){
+		if(latitude == '' || latitude == '0'){
+			alert('Não é possível ordernar por proximidade, já que não foi possível obter sua localização.');
+			return false;
+		}
+	}
+	$(".por-amigos-do-facebook").find('.masterlocaliza  .element').css('font-weight','');
+	$(obj).css('font-weight','bold');
+
+	if(numeroordena == "1"){
+		textoordenacaofb = "Ordem alfabética";
+	}else if(numeroordena == "2"){
+		textoordenacaofb = "Estado";
+	}else if(numeroordena == "4"){
+		textoordenacaofb = "Mais próximos";
+	}
+	numeroordenacaofb = numeroordena;
+	loadblockUI();
+	getAmigosFB(0);
+}
+
+function ordenaLocaliza(numeroordena, obj){
+
+	if(numeroordena == 4){
+		if(latitude == '' || latitude == '0'){
+			alert('Não é possível ordernar por proximidade, já que não foi possível obter sua localização.');
+			return false;
+		}
+	}
+
+	$(".por-localizacao").find('.masterlocaliza  .element').css('font-weight','');
+	$(obj).css('font-weight','bold');
+
+	if(numeroordena == "1"){
+		textoordenacaolocalizacao = "Ordem alfabética";
+	}else if(numeroordena == "2"){
+		textoordenacaolocalizacao = "Estado";
+	}else if(numeroordena == "4"){
+		textoordenacaolocalizacao = "Mais próximos";
+	}
+
+	numeroordenacaolocalizacao = numeroordena;
+	loadblockUI();
+	boPrimeiraVez = true;
+	loadMarkersLocation(0);
+}
+
+function limpaMarkers(map){
+	for (var i = 0; i < markers.length; i++) {
+		markers[i].setMap(map);
+	}
+
+	for (var i = 0; i < directions.length; i++) {
+		directions[i].setMap(null);
+	}
+	directions = [];
+	arrConsultoras = [];
+}
+
+function fechaWindow(){
+	infowindow.close();
+}
+
+function addFriend(obj){
+	var cnFbId = $(obj).attr('fbid');
+
+	window.open('https://www.facebook.com/dialog/friends/?id='+ cnFbId + '&app_id=335307886482564&redirect_uri=https://www.revistanatura.com.br/html/facebook/close.html','Facebook','width=1024,height=450');
+}
+
+function makeContato(obj){
+	var cnFbId = $(obj).attr('fbid');
+
+
+	window.open('https://www.facebook.com/dialog/send?to='+ cnFbId + '&app_id=335307886482564&redirect_uri=https://www.revistanatura.com.br/html/facebook/close.html&link=https://www.natura.com.br/cs/Satellite/blob/1394137959928.jpg?blobcol=urldata&blobkey=id&blobtable=MungoBlobs&blobwhere=1394137959928&ssbinary=true','Facebook','width=1024,height=450');
+}
+
+function VoltaFB(e){
+	e.preventDefault ? e.preventDefault() : e.returnValue = false;
+	$('#wrapper-map').show();
+	$('.btnQueroSerEncontrado').show();
+	$('.bgBranco').hide();
+	if ($(".bgAtivacao").length > 0){
+		$(".bgAtivacao").show();
+		$('#wrapper-menu').hide();
+	}else{
+		$('#wrapper-menu').show();
+	}
+}
+
+function permiteAcessoFB(e){
+	e.preventDefault ? e.preventDefault() : e.returnValue = false;
+	$('.element-fb').click();
+	$('#wrapper-menu').show();
+	$('.bgAtivacao').hide();
+
+	$(".bgAtivacao").remove();
+}
+
+function permiteLocalizacao(e){
+	e.preventDefault ? e.preventDefault() : e.returnValue = false;
+	loadblockUI();
+	limpaMarkers(null);
+	if(latitude == 0){
+		getLocation();
+	}else{
+		boPrimeiraVez = true;
+		loadMarkersLocation(0);
+	}
+}
+
+$(document).on('ready', function(){
+	function getUrlVars() {
+		var vars = [], hash;
+		var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+
+		for(var i = 0; i < hashes.length; i++)
+		{
+			hash = hashes[i].split('=');
+			vars.push(hash[0]);
+			vars[hash[0]] = hash[1];
+		}
+		return vars;
+	}
+
+	if(getUrlVars()["header"] == "false"){
+		$("#gmapa").css('top','0px');
+	}else{
+		$("header").show();
+	}
+
+	if(getUrlVars()["https"] == "true"){
+		isHTTPS = true;
+		backURL = "https://www.revistanatura.com.br";
+	}
+
+	if(getUrlVars()["facebook"] == "true"){
+		$(".header").show();
+		isFacebook = true;
+		backURL = "https://www.revistanatura.com.br";
+		$('#wrapper-map').css('width','590px');
+		$("#wrapper-menu").css('top','350px');
+		$(".bgAtivacao").show();
+		$(".por-amigos-do-facebook").addClass("expanded");
+	}else{
+		$('#wrapper-menu').show();
+	}
+
+	var width = $(document).width(),
+	height = $(document).height();
+
+	function setMapSize() {
+		var map = $('#wrapper-map');
+
+		if(isHTTPS){
+			map.width(width + 30);
+		}else{
+			map.width(width);
+		}
+		map.height(height);
+
+		$('.bgBranco').width('790px');
+		$('.bgBranco').height(height);
+		$(".bgAtivacao").css('height','800px');
+	}
+
+	setMapSize();
+	setEmptyLocation();
+
+	$("input[name='form']").change(function(){
+		$("#txtBuscaCN").show();
+		$("#txtBuscaEnderecoCN").hide();
+
+		var textplaceholder = "";
+		if(this.id == 'nome'){
+			textplaceholder = "Digite o nome do(a) consultor(a)";
+			chkSelected = 'nome';
+		}else if(this.id == 'endereco'){
+			$("#txtBuscaEnderecoCN").show();
+			$("#txtBuscaCN").hide();
+			chkSelected = 'endereco';
+		}else if(this.id == 'email'){
+			textplaceholder = "Digite o email do(a) consultor(a)";
+			chkSelected = 'email';
+		}
+
+		$("#txtBuscaCN").attr('placeholder', textplaceholder);
+	});
+
+	$("#txtBuscaCN").keyup(function(event){
+		if(event.keyCode == 13){
+			$("#btnBuscar").click();
+		}
+	});
+
+	$("#txtBuscaEnderecoCN").keyup(function(event){
+		if(event.keyCode == 13){
+			$("#btnBuscar").click();
+		}
+	});
+
+	$("#btnBuscar").click(function(){BuscaAvancada(0);});
+
+	$('.element-fb').on('click', function(){
+		var left = (screen.width/2)-(780);
+		var top = (screen.height/2)-(410);
+		$("#msgfacebook").hide();
+
+		if(fbId == 0){
+			if(sessaoid == 0){
+				sessaoid = Math.floor(Math.random()*(999999999999999-100+1)+100);
+			}
+
+			signinWin = window.open(backURL + "/html/facebook/fbATN/validate2.php?sessaoid=" + sessaoid, "SignIn", "width=780,height=410,toolbar=0,scrollbars=0,status=0,resizable=0,location=0,menuBar=0,left=" + left + ",top=" + top);
+			setTimeout(CheckLoginStatus, 2000);
+			signinWin.focus();
+			return false;
+		}
+	});
+
+	function CheckLoginStatus() {
+		if (signinWin.closed) {
+			getAmigosFB(0);
+		}
+		else setTimeout(CheckLoginStatus, 1000);
+	}
+
+	$('.btnQueroSerEncontrado').on('click', function(e){
+		e.preventDefault ? e.preventDefault() : e.returnValue = false;
+
+		if ($(".bgAtivacao").length > 0){
+			$(".bgAtivacao").hide();
+		}
+
+		$('#wrapper-menu').hide();
+		$('#wrapper-map').hide();
+		$('.btnQueroSerEncontrado').hide();
+		$('.bgBranco').show();
+	});
+
+	$('#wrapper-menu .wrapper-always-visible-data').on('click', function(){
+		if ($(this).parent().hasClass('expanded')) {
+			$(this).parent().removeClass('expanded');
+		} else {
+			$('#wrapper-menu .element-menu').removeClass('expanded');
+			$(this).parent().addClass('expanded');
+
+			if($(this).parent().attr('name') == 'por-localizacao' && currentTab != 'por-localizacao'){
+				if(btnLocalizacao){
+					$('.busca-avancada').find('.wrapper-pagination').remove();
+					$('.busca-avancada').find('.wrapper-consultants-scroller-avancada').html('');
+					$('.por-amigos-do-facebook').find('.wrapper-pagination').remove();
+					$('.por-amigos-do-facebook').find('.wrapper-consultants-scroller').html('');
+
+					loadblockUI();
+					limpaMarkers(null);
+					if(latitude == 0){
+						getLocation();
+					}else{
+						boPrimeiraVez = true;
+						loadMarkersLocation(0);
+					}
+				}
+
+			}else if($(this).parent().attr('name') == 'por-facebook' && currentTab != 'por-facebook'){
+				if(btnLocalizacao){
+					$('.por-localizacao').find('.wrapper-pagination').remove();
+					$('.por-localizacao').find('.wrapper-consultants-scroller').html('');
+				}
+				$('.busca-avancada').find('.wrapper-pagination').remove();
+				$('.busca-avancada').find('.wrapper-consultants-scroller-avancada').html('');
+
+				limpaMarkers(null);
+				if(fbId == 0){
+					$('.element-fb').click();
+				}else{
+					getAmigosFB(0);
+				}
+			}else if($(this).parent().attr('name') == 'por-avancada' && currentTab != 'por-avancada'){
+
+				$('.por-amigos-do-facebook').find('.wrapper-pagination').remove();
+				$('.por-amigos-do-facebook').find('.wrapper-consultants-scroller').html('');
+				if(btnLocalizacao){
+					$('.por-localizacao').find('.wrapper-pagination').remove();
+					$('.por-localizacao').find('.wrapper-consultants-scroller').html('');
+				}
+
+			}else if($(this).parent().attr('name') == 'por-maisperto' && currentTab != 'por-maisperto'){
+				$('.por-amigos-do-facebook').find('.wrapper-pagination').remove();
+				$('.por-amigos-do-facebook').find('.wrapper-consultants-scroller').html('');
+				if(btnLocalizacao){
+					$('.por-localizacao').find('.wrapper-pagination').remove();
+					$('.por-localizacao').find('.wrapper-consultants-scroller').html('');
+				}
+				$('.busca-avancada').find('.wrapper-pagination').remove();
+				$('.busca-avancada').find('.wrapper-consultants-scroller-avancada').html('');
+
+				limpaMarkers(null);
+				getNaturaMaisPerto();
+			}
+
+			currentTab = $(this).parent().attr('name');
+		}
+	});
+});
+function controleRota(arr){
+	if(markerLocation){
+		markerLocation.setMap(null);
+		markerLocation = null;
+	}
+
+	var directionsService = new google.maps.DirectionsService();
+	var directionsDisplay;
+	var latcidade = 0;
+
+	var lineSymbol = {
+		path: 'M 0,-1 0,1',
+		strokeOpacity: 1,
+		strokeWeight: 5,
+		scale: 0.5
+	};
+
+	var dashedPolylinePresentFuture = {
+		strokeOpacity: 0,
+		strokeColor: '#f58a35',
+		icons: [{
+			icon: lineSymbol,
+			offset: '0',
+			repeat: '10px'
+		}]
+	};
+
+	var dashedPolylinePast = {
+		strokeOpacity: 0,
+		strokeColor: '#aaa7a7',
+		icons: [{
+			icon: lineSymbol,
+			offset: '0',
+			repeat: '10px'
+		}]
+	};
+
+	var dashedPolylineFuture = {
+		strokeOpacity: 0,
+		strokeColor: '#5a5a5c',
+		icons: [{
+			icon: lineSymbol,
+			offset: '0',
+			repeat: '10px'
+		}]
+	};
+
+	var arrPassado = [];
+	var arrFuturo = [];
+	var latcidade = 0;
+	var isEmTransito = false;
+	$.each(arr, function(num, val) {
+		if(val.emtransito){
+			isEmTransito = true;
+		}
+		if(latcidade != val.latitude){
+			latcidade = val.latitude;
+			if(val.statusperiodo == 'past'){
+				var PoLatLng = new google.maps.LatLng(val.latitude, val.longitude);
+				var pointsImage = new google.maps.MarkerImage("/assets/img/placeholders/pin-gmaps_ball_past.png");
+				var marker = new google.maps.Marker({
+					position: PoLatLng,
+					map: map,
+					icon: pointsImage,
+					title: "Natura Mais Perto",
+					zIndex: 1
+				});
+
+				markers.push(marker);
+
+				arrPassado.push(val);
+			}else{
+
+				var PoLatLng = new google.maps.LatLng(val.latitude, val.longitude);
+				var pointsImage = new google.maps.MarkerImage("/assets/img/placeholders/pin-gmaps_ball_future.png");
+				var marker = new google.maps.Marker({
+					position: PoLatLng,
+					map: map,
+					icon: pointsImage,
+					title: "Natura Mais Perto",
+					zIndex: 1
+				});
+
+				markers.push(marker);
+				arrFuturo.push(val);
+			}
+		}
+	});
+
+	if(arrPassado.length <= arrFuturo.length){
+		var objWayPoint;
+		var arrWayPoint = [];
+		for (var i = 1; i < arrPassado.length; i++) {
+			objWayPoint = {};
+			objWayPoint.location = new google.maps.LatLng(arrPassado[i].latitude, arrPassado[i].longitude);
+			objWayPoint.stopover= false;
+			arrWayPoint.push(objWayPoint);
+		};
+
+		if(isEmTransito){
+			var request = {
+				origin: new google.maps.LatLng(arrPassado[0].latitude, arrPassado[0].longitude),
+				destination: new google.maps.LatLng(arrPassado[arrPassado.length - 1].latitude, arrPassado[arrPassado.length - 1].longitude),
+				waypoints: arrWayPoint,
+				travelMode: google.maps.TravelMode.DRIVING
+			};
+
+			directionsService.route(request, function (response, status) {
+				if (status == google.maps.DirectionsStatus.OK) {
+					directionsDisplay = new google.maps.DirectionsRenderer({polylineOptions: dashedPolylinePast, suppressMarkers: true});
+					directionsDisplay.setMap(map)
+					directionsDisplay.setDirections(response);
+					directions.push(directionsDisplay);
+				}
+			});
+		}else{
+			var request = {
+				origin: new google.maps.LatLng(arrPassado[0].latitude, arrPassado[0].longitude),
+				destination: new google.maps.LatLng(arrFuturo[0].latitude, arrFuturo[0].longitude),
+				waypoints: arrWayPoint,
+				travelMode: google.maps.TravelMode.DRIVING
+			};
+
+			directionsService.route(request, function (response, status) {
+				if (status == google.maps.DirectionsStatus.OK) {
+					directionsDisplay = new google.maps.DirectionsRenderer({polylineOptions: dashedPolylinePast, suppressMarkers: true});
+					directionsDisplay.setMap(map)
+					directionsDisplay.setDirections(response);
+					directions.push(directionsDisplay);
+				}
+			});
+		}
+
+		var objWayPoint;
+		var arrWayPoint = [];
+
+		for (var i = 3; i < arrFuturo.length -1; i++) {
+			objWayPoint = {};
+			objWayPoint.location = new google.maps.LatLng(arrFuturo[i].latitude, arrFuturo[i].longitude);
+			objWayPoint.stopover= false;
+			arrWayPoint.push(objWayPoint);
+		};
+
+		var request = {
+			origin: new google.maps.LatLng(arrFuturo[0].latitude, arrFuturo[0].longitude),
+			destination: new google.maps.LatLng(arrFuturo[2].latitude, arrFuturo[2].longitude),
+			waypoints: [{location: new google.maps.LatLng(arrFuturo[1].latitude, arrFuturo[1].longitude), stopover: false}],
+			travelMode: google.maps.TravelMode.DRIVING
+		};
+
+		directionsService.route(request, function (response, status) {
+			if (status == google.maps.DirectionsStatus.OK) {
+				directionsDisplay = new google.maps.DirectionsRenderer({polylineOptions: dashedPolylineFuture, suppressMarkers: true});
+				directionsDisplay.setMap(map)
+				directionsDisplay.setDirections(response);
+				directions.push(directionsDisplay);
+			}
+		});
+
+		var request = {
+			origin: new google.maps.LatLng(arrFuturo[2].latitude, arrFuturo[2].longitude),
+			destination: new google.maps.LatLng(arrFuturo[arrFuturo.length - 1].latitude, arrFuturo[arrFuturo.length - 1].longitude),
+			waypoints: arrWayPoint,
+			travelMode: google.maps.TravelMode.DRIVING
+		};
+
+		directionsService.route(request, function (response, status) {
+			if (status == google.maps.DirectionsStatus.OK) {
+				directionsDisplay = new google.maps.DirectionsRenderer({polylineOptions: dashedPolylineFuture, suppressMarkers: true});
+				directionsDisplay.setMap(map)
+				directionsDisplay.setDirections(response);
+				directions.push(directionsDisplay);
+			}
+		});
+
+		if(isEmTransito){
+			for (var i = 0; i < arr.length -1; i++) {
+				if(arr[i].emtransito){
+					var request = {
+						origin: new google.maps.LatLng(arr[i-1].latitude, arr[i-1].longitude),
+						destination: new google.maps.LatLng(arr[i].latitude, arr[i].longitude),
+						waypoints: [],
+						travelMode: google.maps.TravelMode.DRIVING
+					};
+
+					directionsService.route(request, function (response, status) {
+						if (status == google.maps.DirectionsStatus.OK) {
+							directionsDisplay = new google.maps.DirectionsRenderer({polylineOptions: dashedPolylinePresentFuture, suppressMarkers: true});
+							directionsDisplay.setMap(map)
+							directionsDisplay.setDirections(response);
+							directions.push(directionsDisplay);
+						}
+					});
+
+					break;
+				}
+			};
+		}
+
+	}else{
+
+		var objWayPoint;
+		var arrWayPoint = [];
+		for (var i = 3; i < arrPassado.length -1; i++) {
+			objWayPoint = {};
+			objWayPoint.location = new google.maps.LatLng(arrPassado[i].latitude, arrPassado[i].longitude);
+			objWayPoint.stopover= false;
+			arrWayPoint.push(objWayPoint);
+		};
+
+		var request = {
+			origin: new google.maps.LatLng(arrPassado[0].latitude, arrPassado[0].longitude),
+			destination: new google.maps.LatLng(arrPassado[2].latitude, arrPassado[2].longitude),
+			waypoints: [{location: new google.maps.LatLng(arrPassado[1].latitude, arrPassado[1].longitude), stopover: false}],
+			travelMode: google.maps.TravelMode.DRIVING
+		};
+
+		directionsService.route(request, function (response, status) {
+			if (status == google.maps.DirectionsStatus.OK) {
+				directionsDisplay = new google.maps.DirectionsRenderer({polylineOptions: dashedPolylinePast, suppressMarkers: true});
+				directionsDisplay.setMap(map)
+				directionsDisplay.setDirections(response);
+				directions.push(directionsDisplay);
+			}
+		});
+
+		if(isEmTransito){
+			var request = {
+				origin: new google.maps.LatLng(arrPassado[2].latitude, arrPassado[2].longitude),
+				destination: new google.maps.LatLng(arrPassado[arrPassado.length - 1].latitude, arrPassado[arrPassado.length - 1].longitude),
+				waypoints: arrWayPoint,
+				travelMode: google.maps.TravelMode.DRIVING
+			};
+
+			directionsService.route(request, function (response, status) {
+				if (status == google.maps.DirectionsStatus.OK) {
+					directionsDisplay = new google.maps.DirectionsRenderer({polylineOptions: dashedPolylinePast, suppressMarkers: true});
+					directionsDisplay.setMap(map)
+					directionsDisplay.setDirections(response);
+					directions.push(directionsDisplay);
+				}
+			});
+		}else{
+			var request = {
+				origin: new google.maps.LatLng(arrPassado[2].latitude, arrPassado[2].longitude),
+				destination: new google.maps.LatLng(arrFuturo[0].latitude, arrFuturo[0].longitude),
+				waypoints: arrWayPoint,
+				travelMode: google.maps.TravelMode.DRIVING
+			};
+
+			directionsService.route(request, function (response, status) {
+				if (status == google.maps.DirectionsStatus.OK) {
+					directionsDisplay = new google.maps.DirectionsRenderer({polylineOptions: dashedPolylinePast, suppressMarkers: true});
+					directionsDisplay.setMap(map)
+					directionsDisplay.setDirections(response);
+					directions.push(directionsDisplay);
+				}
+			});
+		}
+
+		var objWayPoint;
+		var arrWayPoint = [];
+		for (var i = 1; i < arrFuturo.length -1; i++) {
+			objWayPoint = {};
+			objWayPoint.location = new google.maps.LatLng(arrFuturo[i].latitude, arrFuturo[i].longitude);
+			objWayPoint.stopover= false;
+			arrWayPoint.push(objWayPoint);
+		};
+
+		var request = {
+			origin: new google.maps.LatLng(arrFuturo[0].latitude, arrFuturo[0].longitude),
+			destination: new google.maps.LatLng(arrFuturo[arrFuturo.length - 1].latitude, arrFuturo[arrFuturo.length - 1].longitude),
+			waypoints: arrWayPoint,
+			travelMode: google.maps.TravelMode.DRIVING
+		};
+
+		directionsService.route(request, function (response, status) {
+			if (status == google.maps.DirectionsStatus.OK) {
+				directionsDisplay = new google.maps.DirectionsRenderer({polylineOptions: dashedPolylineFuture, suppressMarkers: true});
+				directionsDisplay.setMap(map)
+				directionsDisplay.setDirections(response);
+				directions.push(directionsDisplay);
+			}
+		});
+
+		if(isEmTransito){
+			for (var i = 0; i < arr.length -1; i++) {
+				if(arr[i].emtransito){
+					var request = {
+						origin: new google.maps.LatLng(arr[i-1].latitude, arr[i-1].longitude),
+						destination: new google.maps.LatLng(arr[i].latitude, arr[i].longitude),
+						waypoints: [],
+						travelMode: google.maps.TravelMode.DRIVING
+					};
+
+					directionsService.route(request, function (response, status) {
+						if (status == google.maps.DirectionsStatus.OK) {
+							directionsDisplay = new google.maps.DirectionsRenderer({polylineOptions: dashedPolylinePresentFuture, suppressMarkers: true});
+							directionsDisplay.setMap(map)
+							directionsDisplay.setDirections(response);
+							directions.push(directionsDisplay);
+						}
+					});
+
+					break;
+				}
+			};
+		}
+	}
+
+	setTimeout(function () {
+		var latlng = new google.maps.LatLng(-11.4400732,-40.1805018);
+		map.setZoom(5);
+		map.setCenter(latlng);
+
+		setTimeout(function () {
+			if(booAlerta){
+				new Messi('Neste momento o Truck Natura Mais Perto está se dirigindo para o local do próximo evento. Acompanhe no calendário ao lado quando o Truck chegará na sua cidade e fique atento a este ícone no mapa <img src="https://www.revistanatura.com.br/html/assets/img/placeholders/pin-gmaps_bus_compressed.png" style="width:20px">. Ele indica quando a ação está acontecendo.', {title: 'Truck Natura Mais Perto', modal: true});
+			}
+		}, 1000);
+	}, 1500);
+}
+
+function montaCaptcha()	{
+	var html = '<form onkeypress="return event.keyCode != 13;" class="form-horizontal well" accept-charset="UTF-8"> \
+	<span style="font-family: gill_sans_std; font-size: 0.8em; height: 21px; color: #5e5d58; display: block; width: 100%; text-align: center;">Digite o texto abaixo para visualizar os dados do consultor:</span> \
+	<div id="recaptcha_widget" style="display:none"> \
+		<div class="control-group"> \
+			<div class="controlsimage"> \
+				<a id="recaptcha_image" href="#" class="thumbnail"></a> \
+				<div class="recaptcha_only_if_incorrect_sol" style="color:red">Incorreto, por favor tentar novamente</div> \
+			</div> \
+		</div> \
+		<div class="control-group"> \
+			<div class="controls"> \
+				<div class="input-append"> \
+					<input type="text" id="recaptcha_response_field" name="recaptcha_response_field" class="input-recaptcha" style="border: 1px solid #496c60; float: left; font-family: gill_sans_std_light; font-size: 13pt; height: 23px; margin-bottom: 10px; width: 185px;" /> \
+					<a class="btn" href="javascript:Recaptcha.reload()"><i class="icone-refresh"></i></a> \
+					<a class="btn recaptcha_only_if_image" href="javascript:Recaptcha.switch_type(\'audio\')"><i title="Get an audio CAPTCHA" class="icone-headphones"></i></a> \
+					<a class="btn recaptcha_only_if_audio" href="javascript:Recaptcha.switch_type(\'image\')"><i title="Get an image CAPTCHA" class="icone-picture"></i></a> \
+					<a class="btn" href="javascript:Recaptcha.showhelp()"><i class="icone-question-sign"></i></a> \
+				</div> \
+			</div> \
+			<div> \
+				<div> \
+					<span id="msg_erro_captcha" style="font-family: gill_sans_std; font-size: 0.85em; color: red; display: block; width: 66%; float: left; margin-left: 5px;"></span> \
+				</div> \
+				<div> \
+					<a onclick="validaCaptcha();" href="javascript:void(0);"> \
+						<span class="icon icon-avancar" style="z-index: 2; opacity: 1; color: #a8a8a0; cursor: pointer; font-size: 1.4em; height: 22px; width: 22px; float:right; margin-top: 191px; -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -o-transform: rotate(180deg); -ms-transform: rotate(180deg); transform: rotate(180deg); margin-right:2px;"></span> \
+						<span style="z-index: 2; opacity: 1; color: rgb(94, 93, 88); cursor: pointer; float: right; margin-right: 27px; padding-bottom: 5px; font-family: gill_sans_std; font-size: 0.95em; margin-top: 0px;">prosseguir</span> \
+					</a> \
+				</div> \
+			</div> \
+		</div> \
+	</div> \
+</form>';
+
+return html;
+}
+
+function montaCaptchaMarker()	{
+	var html = '<form onkeypress="return event.keyCode != 13;" class="form-horizontal well" accept-charset="UTF-8" style="width:250px"> \
+	<span style="font-family: gill_sans_std; font-size: 0.8em; height: 21px; color: #5e5d58; display: block; width: 100%; text-align: center;">Digite o texto abaixo para visualizar os dados do consultor:</span> \
+	<div id="recaptcha_widget" style="display:none"> \
+		<div class="control-group"> \
+			<div class="controlsimage imagemarker"> \
+				<a id="recaptcha_image" href="#" class="thumbnail" style=""></a> \
+				<div class="recaptcha_only_if_incorrect_sol" style="color:red">Incorreto, por favor tentar novamente</div> \
+			</div> \
+		</div> \
+		<div class="control-group"> \
+			<div class="controls"> \
+				<div class="input-append"> \
+					<input type="text" id="recaptcha_response_field" name="recaptcha_response_field" class="input-recaptcha" style="border: 1px solid #496c60; float: left; font-family: gill_sans_std_light; font-size: 13pt; height: 23px; margin-bottom: 10px; width: 130px;" /> \
+					<a class="btn" href="javascript:Recaptcha.reload()"><i class="icone-refresh"></i></a> \
+					<a class="btn recaptcha_only_if_image" href="javascript:Recaptcha.switch_type(\'audio\')"><i title="Get an audio CAPTCHA" class="icone-headphones"></i></a> \
+					<a class="btn recaptcha_only_if_audio" href="javascript:Recaptcha.switch_type(\'image\')"><i title="Get an image CAPTCHA" class="icone-picture"></i></a> \
+					<a class="btn" href="javascript:Recaptcha.showhelp()"><i class="icone-question-sign"></i></a> \
+				</div> \
+			</div> \
+			<div> \
+				<div> \
+					<span id="msg_erro_captcha" style="font-family: gill_sans_std; font-size: 0.85em; color: red; display: block; width: 60%; float: left; margin-left: 5px;"></span> \
+				</div> \
+				<div> \
+					<a onclick="validaCaptcha();" href="javascript:void(0);"> \
+						<span class="icon icon-avancar" style="z-index: 2; opacity: 1; color: #a8a8a0; cursor: pointer; font-size: 1.4em; height: 22px; width: 22px; float:right; margin-top: 197px; transform: -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -o-transform: rotate(180deg); -ms-transform: rotate(180deg); transform: rotate(180deg); margin-right:15px;"></span> \
+						<span style="z-index: 2; opacity: 1; color: rgb(94, 93, 88); cursor: pointer; float: right; margin-right: 27px; padding-bottom: 5px; font-family: gill_sans_std; font-size: 0.95em; margin-top: 0px;">prosseguir</span> \
+					</a> \
+				</div> \
+			</div> \
+		</div> \
+	</div> \
+</form>';
+
+return html;
+}
+
+function validaCaptcha(){
+	loadblockUI();
+	URLmetodo = backURL + "/localizacao/recaptcha";
+	$.ajax({
+		type: "POST",
+		url: URLmetodo,
+		dataType: "json",
+		data: 'recaptcha_response_field=' + $("#recaptcha_response_field").val() + '&recaptcha_challenge_field=' + $("#recaptcha_challenge_field").val() + '&ids=' + arrConsultoras.join(",") + '&widget=true',
+		cache: false,
+		success: function (resultado) {
+
+			if(resultado.status){
+				$(".form-horizontal").remove();
+				loadedCaptcha = true;
+				var imagmarker = $(".gm-style-iw").find('.element-pin').find('.wrapper-consultant-additional-info').find('img');
+
+//armaze para corrigir problema do flip
+$.each(resultado.arrCNS, function(num, val) {
+	$(".imgdado_" + val.id).attr('src', val.img);
+	$(".imgdado_" + val.id).show();
+	if(val.id == currentidcn){
+		$(imagmarker).attr('src', val.img);
+		$(imagmarker).css('margin-left','-14px');
+		$(imagmarker).show();
+	}
+});
+
+$(".icon-plusinfo").click();
+$(".btnAddFriend").show();
+$(".btnContato").show();
+
+}else{
+	loadCaptcha();
+	$("#msg_erro_captcha").html(resultado.mensagem);
+}
+
+$.unblockUI();
+},
+error: function (objerror) {
+	TrataErroBackEnd(objerror);
+},
+timeout: 15000
+});
+}
+
+function loadCaptcha(){
+	$("#msg_erro_captcha").html('');
+	Recaptcha.create("6LeUrAoTAAAAAOlHiRwLQ4XhvVPLJGILlt8OIoEa",
+		"recaptcha_widget",
+		{
+			theme: "custom",
+			custom_theme_widget: 'recaptcha_widget',
+			lang: "pt-br",
+			callback: Recaptcha.focus_response_field
+		}
+		);
+}
+
+function validaEmail(email) {
+	var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+	return regex.test(email);
+}
+
+function abreLogin(){
+	$("#monta_login").show();
+}
+
+function irPerfilNatura(){
+	window.open(
+		'https://www.revistanatura.com.br/perfil-consultor',
+		'_blank'
+		);
+}
+
+function doLogin(){
+	if ($("#txtCodEmail").val().length == 0) {
+		alert("Favor preencher com o Código ou e-mail.");
+		$("#txtCodEmail").focus();
+		return false;
+	}
+
+	if ($("#txtSenhaCN").val().length == 0) {
+		alert("Favor preencher a senha");
+		$("#txtSenhaCN").focus();
+		return false;
+	}
+
+	loadblockUI();
+
+	$.ajax({
+		type: "GET",
+		url: "https://ps.natura.net/Mlab2/_ssl/login/LoginAspReturnJsonP/includes/asp/funcoes.asp",
+		data: "oper=1&codigoouemail=" + encodeURIComponent($("#txtCodEmail").val()) + "&senha=" + encodeURIComponent($("#txtSenhaCN").val()),
+		dataType: "jsonp",
+		jsonp: "callback",
+		jsonpCallback: "doOptOut",
+		error: function (objerror) {
+			alert("Ocorreu um erro no login. - " + objerror);
+			$.unblockUI();
+		},
+		timeout: 45000
+	});
+}
+
+function doOptOut(objLogin){
+	if (objLogin.CodigoRetorno == '1') {
+		URLmetodo = backURL + "/usuario/sairbuscacn";
+		$.ajax({
+			type: "POST",
+			url: URLmetodo,
+			data: "CN=" + objLogin.CodigoCN + "&GV=" + objLogin.GV + "&Situacao=" + objLogin.CNAtiva,
+			dataType:"json",
+			cache: false,
+			success: function(objResult){
+				if(objResult.status){
+					alert("dados removidos com sucesso.");
+					$("#monta_login").parent().find("p").html('dados removidos com sucesso.');
+					$("#monta_login").hide();
+
+				}else{
+					alert(objResult.mensagem);
+				}
+				$.unblockUI();
+			},
+			error: function(objerror){
+				parent.TrataErroBackEnd(objerror);
+			},
+			timeout: 15000
+		});
+	}else{
+		alert(objLogin.MsgRetorno);
+		$.unblockUI();
+	}
+}
+</script>
+
+
+<script type="text/javascript" src="Widget%20Natura_files/all.js"></script>
+<script type="text/javascript">
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId : '1519507231638912'
+		});
+		FB.Canvas.setAutoGrow();
+	}
+	window.fbAsyncInit();
+</script><div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="Widget%20Natura_files/ao6eUeuGXQq.html" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" scrolling="no" allowfullscreen="true" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="Widget%20Natura_files/ping.html" style="display: none;" scrolling="no" allowfullscreen="true" allowtransparency="true" name="f3f21fee28b7384" frameborder="0"></iframe></div></div></div>
+
+<script>
+	var _gas = _gas || [];
+	_gas.push(['_setAccount', 'UA-56981814-1']);
+	_gas.push(['_setDomainName', '.revistanatura.com.br']);
+	_gas.push(['_trackPageview', 'widget_facebook']);
+	_gas.push(['_gasTrackForms']);
+	_gas.push(['_gasTrackOutboundLinks']);
+	_gas.push(['_gasTrackMaxScroll']);
+	_gas.push(['_gasTrackDownloads']);
+	_gas.push(['_gasTrackYoutube', {force: true}]);
+	_gas.push(['_gasTrackVimeo', {force: true}]);
+	_gas.push(['_gasTrackMailto']);
+
+	(function() {
+		var ga = document.createElement('script');
+		ga.type = 'text/javascript';
+		ga.async = true;
+		ga.src = '//cdnjs.cloudflare.com/ajax/libs/gas/1.10.1/gas.min.js';
+		var s = document.getElementsByTagName('script')[0];
+		s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<div style="display: none; width: 219px; position: absolute; left: 135px; top: 273px;" class="pac-container pac-logo"><div class="pac-item"><span class="pac-icon pac-icon-marker"></span><span class="pac-item-query">Vila Fiori</span><span>Sorocaba - State of São Paulo <span class="pac-matched">18075-570</span>, Brazil</span></div></div><div style="display: none;" id="divBlockLoading">
+		<img src="Widget%20Natura_files/loader.gif" height="20" width="20">
+	</div></body></html>

@@ -1,0 +1,630 @@
+#wrapper-busca-cn {
+  width: 100%; }
+  #wrapper-busca-cn .icon-truck {
+    padding-top: 2px;
+    font-size: 1.2em; }
+  #wrapper-busca-cn .wrapper-pagination {
+    height: 30px; }
+    #wrapper-busca-cn .wrapper-pagination p.active {
+      color: #333333;
+      font-family: "gill_sans_std";
+      margin-right: 12px;
+      font-weight: bolder; }
+    #wrapper-busca-cn .wrapper-pagination p.disabled {
+      color: #b4b4b4;
+      font-family: "gill_sans_std_light"; }
+    #wrapper-busca-cn .wrapper-pagination span {
+      float: left;
+      display: block;
+      font-size: 0.3em;
+      padding-top: 7px;
+      cursor: pointer;
+      color: #585d5b;
+      padding-right: 5px; }
+      #wrapper-busca-cn .wrapper-pagination span:hover {
+        color: black; }
+    #wrapper-busca-cn .wrapper-pagination .element-previous {
+      width: 45px;
+      color: #b4b4b4;
+      font-size: 0.23em;
+      float: left;
+      height: 30px;
+      line-height: 30px;
+      margin: 0 10px 0 0; }
+      #wrapper-busca-cn .wrapper-pagination .element-previous:hover {
+        cursor: pointer;
+        text-decoration: underline; }
+    #wrapper-busca-cn .wrapper-pagination .element-next {
+      width: 49px;
+      color: #b4b4b4;
+      font-size: 0.23em;
+      float: left;
+      height: 30px;
+      line-height: 30px;
+      margin: 0 0 0 5px;
+      font-weight: bolder;
+      font-family: "gill_sans_std";
+      color: #333333; }
+      #wrapper-busca-cn .wrapper-pagination .element-next:hover {
+        cursor: pointer;
+        text-decoration: underline; }
+    #wrapper-busca-cn .wrapper-pagination .element-pagination {
+      width: 17px;
+      height: 17px;
+      color: #4d5250;
+      cursor: pointer;
+      text-align: center;
+      line-height: 18px;
+      display: block;
+      float: left;
+      font-size: 0.2em;
+      margin: 6px 4px 0 0;
+      font-family: "gill_sans_std";
+      -webkit-border-radius: 17px;
+      -moz-border-radius: 17px;
+      border-radius: 17px; }
+      #wrapper-busca-cn .wrapper-pagination .element-pagination:hover {
+        opacity: 0.8;
+        background: #cde3dc; }
+      #wrapper-busca-cn .wrapper-pagination .element-pagination.active {
+        background: #38564c;
+        color: white;
+        font-weight: bolder; }
+        #wrapper-busca-cn .wrapper-pagination .element-pagination.active:hover {
+          cursor: default;
+          opacity: 1; }
+  #wrapper-busca-cn #btnBuscar:hover {
+    opacity: 0.8;
+    cursor: pointer; }
+  #wrapper-busca-cn .name, #wrapper-busca-cn .city, #wrapper-busca-cn .phone, #wrapper-busca-cn .email {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; }
+  #wrapper-busca-cn nav#a {
+    width: 100%;
+    height: 50px;
+    background: #262626;
+    float: left; }
+    #wrapper-busca-cn nav#a .element-sanduiche {
+      width: 68px;
+      height: 50px;
+      background: url(/html/assets/img/common/sanduiche.png);
+      float: left;
+      cursor: pointer; }
+    #wrapper-busca-cn nav#a .element-close {
+      width: 64px;
+      height: 50px;
+      float: right;
+      text-align: center;
+      border-left: 1px solid white; }
+      #wrapper-busca-cn nav#a .element-close:hover {
+        cursor: pointer; }
+      #wrapper-busca-cn nav#a .element-close span {
+        width: 64px;
+        font-size: 0.4em;
+        color: white;
+        float: left;
+        margin-top: 15px; }
+        #wrapper-busca-cn nav#a .element-close span:hover {
+          opacity: 0.6; }
+    #wrapper-busca-cn nav#a h1 {
+      font-family: "gill_sans_std_light";
+      color: white;
+      font-size: 0.5em;
+      font-weight: lighter;
+      line-height: 50px;
+      height: 50px;
+      margin-left: 20px;
+      float: left; }
+      #wrapper-busca-cn nav#a h1.nomeh1 {
+        width: 410px;
+        text-align: right; }
+  #wrapper-busca-cn #wrapper-sidebar {
+    width: 50%;
+    height: 894px;
+    float: left;
+    background: white;
+    font-family: "gill_sans_std_light";
+    position: relative;
+    z-index: 9;
+    -webkit-box-shadow: 1px 0px 40px -15px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 0px 40px -15px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 0px 40px -15px rgba(0, 0, 0, 0.75); }
+    #wrapper-busca-cn #wrapper-sidebar nav {
+      width: 100%;
+      height: 40px;
+      float: left; }
+      #wrapper-busca-cn #wrapper-sidebar nav div.tab {
+        width: 127px;
+        height: 40px;
+        float: left;
+        margin-right: 1px;
+        background: #e2e0d3;
+        text-align: center; }
+        #wrapper-busca-cn #wrapper-sidebar nav div.tab.por-localizacao {
+          width: 137px; }
+        #wrapper-busca-cn #wrapper-sidebar nav div.tab.por-amigos-facebook {
+          width: 116px; }
+        #wrapper-busca-cn #wrapper-sidebar nav div.tab.busca-avancada {
+          width: 135px; }
+        #wrapper-busca-cn #wrapper-sidebar nav div.tab.natura-mais-perto {
+          width: 121px; }
+        #wrapper-busca-cn #wrapper-sidebar nav div.tab:hover {
+          cursor: pointer;
+          opacity: 0.8; }
+        #wrapper-busca-cn #wrapper-sidebar nav div.tab.active {
+          background: white; }
+          #wrapper-busca-cn #wrapper-sidebar nav div.tab.active:hover {
+            cursor: default;
+            opacity: 1;
+            text-decoration: none !important; }
+          #wrapper-busca-cn #wrapper-sidebar nav div.tab.active p.desc {
+            color: #345b50; }
+        #wrapper-busca-cn #wrapper-sidebar nav div.tab p.desc {
+          color: #75726d;
+          height: 40px;
+          line-height: 40px;
+          width: 100%;
+          font-size: 0.32em; }
+          #wrapper-busca-cn #wrapper-sidebar nav div.tab p.desc span.icon {
+            margin: 2px 0 0 5px; }
+        #wrapper-busca-cn #wrapper-sidebar nav div.tab:last-child {
+          margin-right: 0; }
+    #wrapper-busca-cn #wrapper-sidebar .wrapper-listing {
+      width: 454px;
+      margin: 30px auto 0 auto;
+      padding-top: 30px;
+      overflow: hidden; }
+      #wrapper-busca-cn #wrapper-sidebar .wrapper-listing #wrapper-ordenar {
+        margin-bottom: 20px;
+        width: 302px;
+        overflow: hidden; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing #wrapper-ordenar p {
+          font-size: 0.4em;
+          color: #5f605b; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing #wrapper-ordenar p:hover {
+            cursor: pointer; }
+      #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .ordenar {
+        position: absolute;
+        width: 170px;
+        height: 90px;
+        background: #e2e0d3;
+        overflow: hidden;
+        margin: -20px 0 0 129px;
+        z-index: 9;
+        outline: 1px solid #adada5; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .ordenar .element {
+          font-size: 0.33em;
+          color: #5f5e5a;
+          width: 160px;
+          height: 30px;
+          line-height: 30px;
+          padding-left: 10px; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .ordenar .element.active {
+            color: #375c51; }
+            #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .ordenar .element.active:hover {
+              background: none;
+              cursor: default; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .ordenar .element:hover {
+            background: #f6f7f2;
+            cursor: pointer; }
+      #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto p {
+        font-size: 0.36em;
+        line-height: 23px;
+        color: #6f6f6d;
+      }
+      #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto iframe {
+        margin: 27px 0 0 0; }
+      #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar {
+        width: 475px;
+        height: auto;
+        float: left;
+        margin: 23px 0 0 0; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar h1 {
+          width: 194px;
+          text-align: right;
+          padding: 0 30px 0 0;
+          float: left;
+          color: #4f4f50;
+          text-transform: uppercase;
+          font-size: 0.64em;
+          line-height: 34px; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar #wrapper-calendar-list {
+          /*float: left;*/
+          width: 250px;
+          height: 753px;
+          overflow-y: scroll;
+          border-left: 1px solid #9ca0a3; 
+          margin-left: 200px;
+          position:absolute; 
+        }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar #wrapper-calendar-list .element-calendar-item {
+            width: 200px;
+            max-height: 59px;
+            overflow: hidden;
+            margin: 0 0 25px 29px;
+            float: left;
+            border-bottom: 1px solid;
+            position: relative;
+            cursor: pointer;
+            -webkit-transition: max-height 0.5s;
+            -moz-transition: max-height 0.5s;
+            -o-transition: max-height 0.5s;
+            -ms-transition: max-height 0.5s;
+            transition: max-height 0.5s; }
+            #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar #wrapper-calendar-list .element-calendar-item:hover {
+              opacity: 0.9; }
+            #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar #wrapper-calendar-list .element-calendar-item.expanded {
+              max-height: 200px; }
+              #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar #wrapper-calendar-list .element-calendar-item.expanded .arrow {
+                -webkit-transform: rotate(180deg);
+                -moz-transform: rotate(180deg);
+                -o-transform: rotate(180deg);
+                -ms-transform: rotate(180deg);
+                transform: rotate(180deg); }
+            #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar #wrapper-calendar-list .element-calendar-item.present {
+              color: #f3802b; }
+              #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar #wrapper-calendar-list .element-calendar-item.present .arrow {
+                background-color: #f3802b; }
+            #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar #wrapper-calendar-list .element-calendar-item.past {
+              color: #c6c6c6; }
+              #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar #wrapper-calendar-list .element-calendar-item.past .arrow {
+                background-color: #9e9fa3; }
+            #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar #wrapper-calendar-list .element-calendar-item.future {
+              color: #5a5a5c; }
+              #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar #wrapper-calendar-list .element-calendar-item.future .arrow {
+                background-color: #4e4f50; }
+            #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar #wrapper-calendar-list .element-calendar-item h2 {
+              font-weight: bolder;
+              font-size: 0.6em;
+              letter-spacing: -1px;
+              float: left; }
+            #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar #wrapper-calendar-list .element-calendar-item span {
+              font-size: 0.33em;
+              padding: 3px 0 8px 0;
+              float: left;
+              width: 100%;
+              text-align: right; }
+            #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.natura-mais-perto #wrapper-calendar #wrapper-calendar-list .element-calendar-item .arrow {
+              width: 21px;
+              height: 21px;
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              background-image: url("/html/assets/img/common/seta-baixo.png");
+              background-position: center;
+              background-repeat: no-repeat; }
+      #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.busca-avancada input[type=text] {
+        width: 310px;
+        padding-left: 20px;
+        font-size: 0.32em;
+        height: 41px;
+        border: 1px solid #496c60;
+        font-family: "gill_sans_std_light";
+        float: left;
+        margin-bottom: 10px; }
+      #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.busca-avancada .radio {
+        float: left;
+        margin-right: 39px;
+        overflow: hidden;
+        height: 22px;
+        margin-bottom: 18px; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.busca-avancada .radio input, #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.busca-avancada .radio label {
+          float: left; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.busca-avancada .radio label {
+          font-size: 0.3em;
+          margin-left: 5px;
+          padding-top: 3px;
+          height: 15px;
+          line-height: 15px; }
+      #wrapper-busca-cn #wrapper-sidebar .wrapper-listing.busca-avancada input[type=button] {
+        margin-bottom: 10px;
+        border: 1px solid #355c51;
+        height: 45px;
+        background: #355c51;
+        font-family: "gill_sans_std_light";
+        cursor: pointer;
+        float: left;
+        color: white;
+        font-size: 0.35em;
+        width: 100px;
+        margin-left: 10px; }
+      #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-fb {
+        width: 389px;
+        height: 50px;
+        background: url(/html/assets/img/common/btn_facebook_buscacn.png);
+        margin: 40px 0 0 41px;
+        cursor: pointer; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-fb + p {
+          font-size: 0.45em;
+          color: #5f5e5a;
+          margin: 20px 0 0 45px;
+          height: 70px;
+          width: 340px; }
+      #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-fb-soon {
+        margin: 20px 0 0 45px;
+        font-family: "gill_sans_std";
+        color: #615e59;
+        font-size: 38px;
+        font-style: italic; }
+      #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .delta {
+        background: #e2e0d3;
+        width: 98% !important;
+        float: left;
+        height: 230px !important;
+        margin: 0 0 30px 0; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .delta .input input {
+          width: 338px; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .delta .links {
+          width: 361px; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .delta ul.list {
+          width: 99.2%; }
+      #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-call-to-action {
+        width: 98%;
+        height: 50px;
+        background: #e2e0d3;
+        float: left;
+        margin: 0 0 30px 0; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-call-to-action.active {
+          background: #5f5e5a;
+          margin: 0 0 0 0 !important; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-call-to-action.active p, #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-call-to-action.active .icon {
+            color: white; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-call-to-action:hover {
+          opacity: 0.9;
+          cursor: pointer; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-call-to-action p {
+          font-family: "gill_sans_std_light";
+          font-size: 0.5em;
+          color: #878681;
+          float: left;
+          margin: 0 0 0 25px;
+          line-height: 50px;
+          height: 50px; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-call-to-action p .icon {
+            margin: 5px 0 0 64px;
+            padding: 0 0 0 0;
+            line-height: 50px;
+            color: #5f5e5a; }
+      #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora {
+        width: 442px;
+        height: 184px;
+        float: left;
+        background: #e2e0d3 !important;
+        border: 1px solid #e0e1d3;
+        position: relative;
+        margin-bottom: 20px; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped span.desc {
+          width: 174px;
+          padding-left: 17px;
+          padding-top: 25px;
+          display: block;
+          height: 30px;
+          /*background: #e2e0d3;*/
+          font-family: "gill_sans_std";
+          color: #5f5e59;
+          font-size: 0.3em;
+          line-height: 30px; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped span.canal {
+          width: 174px;
+          padding-left: 17px;
+          padding-top: 10px;
+          display: block;
+          height: 30px;
+          font-family: "gill_sans_std_light";
+          color: #5f5e59;
+          font-size: 0.3em;
+          line-height: 30px; }  
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .element-short-information {
+          margin-top: 30px; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .revista-natura-digital, #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .aqui-tem-natura, #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .portal-natura, #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .rede-natura {
+          width: 91px;
+          display: block;
+          float: left;
+          height: 76px;
+          background: #f3f3eb;
+          overflow: hidden;
+          color: #d4d4cd;
+          font-size: 0.25em;
+          text-align: center;
+          text-decoration: none; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .revista-natura-digital:hover, #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .aqui-tem-natura:hover, #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .portal-natura:hover, #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .rede-natura:hover {
+            cursor: default; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .revista-natura-digital.active, #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .aqui-tem-natura.active, #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .portal-natura.active, #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .rede-natura.active {
+            color: #5f5e5a;
+            font-weight: bolder;
+            background: #ecece4; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .revista-natura-digital {
+          border-right: 2px solid #dfe0d2;
+          border-bottom: 2px solid #dfe0d2;
+          height: 59px;
+          padding-top: 17px; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .aqui-tem-natura {
+          border-bottom: 2px solid #dfe0d2;
+          height: 59px;
+          padding-top: 17px; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .portal-natura {
+          border-right: 2px solid #dfe0d2;
+          height: 52px;
+          padding-top: 24px; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .rede-natura {
+          height: 52px;
+          padding-top: 24px; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .element-thumbnail {
+          width: 184px;
+          height: 184px;
+          float: left;
+          background: #dfe0d2;
+          overflow: hidden; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .element-thumbnail span.desc {
+            word-spacing: -1px;
+            cursor: default; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .icon.icon-plusinfo {
+          width: 22px;
+          height: 22px;
+          position: absolute;
+          top: 8px;
+          right: 10px;
+          font-size: 0.43em;
+          overflow: hidden;
+          color: #f38c32;
+          cursor: pointer; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .icon.icon-plusinfo:hover {
+            color: #fcfcfb;
+            cursor: pointer; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .icon.icon-voltar {
+          width: 22px;
+          cursor: pointer;
+          height: 22px;
+          position: absolute;
+          top: 8px;
+          right: 10px;
+          font-size: 0.43em;
+          overflow: hidden;
+          color: #a8a8a0; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .icon.icon-voltar:hover {
+            opacity: 0.8;
+            cursor: pointer; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .element-short-information {
+          float: left;
+          width: 241px;
+          margin: 50px 0 0 16px;
+          position: relative; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .element-short-information span {
+            font-family: "gill_sans_std_light";
+            color: #5e5d58;
+            width: 100%;
+            margin-bottom: 4px;
+            display: block; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .element-short-information .name {
+            float: left;
+            font-family: "gill_sans_std";
+            height: 21px;
+            font-size: 0.4em; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .element-short-information .city, #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .element-short-information .phone {
+            float: left;
+            font-size: 0.3em; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .element-short-information .email {
+            margin-top: 5px;
+            float: left;
+            color: #114bc7;
+            font-size: 0.3em; }
+            #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .element-short-information .email a {
+              color: #114bc7;
+              text-decoration: none; }
+              #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .element-short-information .email a:hover {
+                text-decoration: underline; }
+        #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .element-add-consultant-button {
+          width: 258px;
+          height: 30px;
+          position: absolute;
+          background: #f9f9f7;
+          right: 0;
+          bottom: 0;
+          cursor: pointer; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .element-add-consultant-button:hover {
+            opacity: 0.8;
+            cursor: pointer; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .element-add-consultant-button p {
+            color: #615e59;
+            font-size: 0.28em;
+            height: 30px;
+            line-height: 32px;
+            margin: 0 0 0 10px; }
+          #wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora .element-add-consultant-button span {
+            font-size: 20px;
+            font-family: "gill_sans_std";
+            vertical-align: top;
+            margin-left: 3px; }
+
+#wrapper-busca-cn #wrapper-sidebar .wrapper-listing .element-consultora.flipped .canais-natura {
+        /*border-right: 2px solid #dfe0d2;*/
+        height: 184px;
+        /*padding-top: 24px;*/
+        background: #dfe0d2;
+        width: 100%;
+}
+
+
+  #wrapper-busca-cn #wrapper-map {
+    width: 50%;
+    height: 894px;
+    float: left; 
+    position: relative;}
+
+.listaconsultoras1 {
+  float: left;
+  height: 600px !important;
+  width: 454px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-y: scroll;
+  -ms-overflow-x: hidden; }
+
+.listaconsultorasbusca {
+  float: left;
+  height: 600px !important;
+  width: 454px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-y: scroll;
+  -ms-overflow-x: hidden; 
+}
+
+.listaconsultorasfb {
+  float: left;
+  height: 600px !important;
+  width: 454px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  -ms-overflow-y: scroll;
+  -ms-overflow-x: hidden; 
+}
+
+.icon.icon-plusinfo:hover {
+  opacity: 0.9;
+  cursor: pointer; }
+
+.icon.icon-voltar:hover {
+  opacity: 0.8;
+  cursor: pointer; }
+
+.faixalimite{
+  width:184px !important;
+}
+
+.icon-plus-right{
+  right: 7px !important;
+}
+#wrapper-map .mascara{
+  position: absolute;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-align: center;
+  font-family: "gill_sans_std_bold";
+  color: #fff;
+  display: none;
+}
+#wrapper-map .mascara span{
+  color: #f48d40;
+}
+#wrapper-map .mascara h2{
+  font-size: 20px;
+  margin: 50% 0 10px 0;
+}
+#wrapper-map .mascara p{
+  font-family: "gill_sans_std";
+  font-size: 15px;
+}
+
+.cnencontrado{
+  float: left; font-family: gill_sans_std_light; font-size: 0.34em; height: 21px; color:#5f605b
+}
+
+.cnencontrado-total{
+  font-family: gill_sans_std; font-size: 0.92em; font-weight:bolder
+}

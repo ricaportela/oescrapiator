@@ -1,56 +1,41 @@
 """Scrape."""
 # coding: utf-8
-from app.browser import Browser
-from selenium.common.exceptions import NoSuchElementException
+import sys
+from selenium import webdriver
+from pyvirtualdisplay import Display
 
+display = Display(visible=0, size=(800, 600))
+display.start()
 
-class Scrapernt(Browser):
-    """Scrape page."""
+driver = webdriver.Firefox()
+url = "https://www.revistanatura.com.br/html/widget"
+driver.get(url)
 
-    def __init__(self):
-        """Construtor."""
-        pass
+txtBuscaAvancada = driver.find_element_by_name("por-avancada")
+txtBuscaAvancada.click()
+txtCEP = driver.find_element_by_xpath("""//*[@id="txtBuscaEnderecoCN"]""")
+txtCEP.send_keys("18075570")
+print("Type CEP Code...")
+btnBuscar = driver.find_element_by_xpath("""//*[@id="btnBuscar"]""")
+btnBuscar.click()
+print("find representantes list...")
 
-    def consultants_list(self, zipcode, driver):
-        """Scrape Html tags return list consultants."""
-        check_exists_by_name("por-avancada")
+driver.implicitly_wait(3)
+consultants = driver.find_elements_by_class_name('element-consultant')
+string2 = []
+for x in consultants:
+    print(x.text)
+    string1 = str(x.text).splitlines()
+    string2.append(string1)
 
-        inputZipCode = driver.find_element_by_xpath("""//*[@id="txtBuscaEnderecoCN"]""")
-        inputZipCode.send_keys("18075570")
+print(string2)
+with open('output.txt', 'w') as target:
+    for ab in string2:
+        print(ab)
+        target.write(str(ab))
 
-        print("Type CEP Code...")
-        btnSearch = driver.find_element_by_xpath("""//*[@id="btnBuscar"]""")
-        btnSearch.click()
+paginads = driver.find_elements_by_class_name("wrapper-pagination")
+for b in paginads:
+    print(b.tag_name)
 
-        print("find representantes list...")
-        driver.implicitly_wait(3)
-        consultants = driver.find_elements_by_class_name('element-consultant')
-        consultants_list = []
-        for consultant in consultants:
-            print(consultant.text)
-            consultants_data = str(consultant.text).splitlines()
-            consultants_list.append(consultants_data)
-
-            print(consultants_list)
-            with open('output.txt', 'w') as target:
-                for info in consultants_list:
-                    print(info)
-                    target.write(str(info))
-# def check_exists(type, search):
-
-    def check_exists_by_name(byname):
-        """Test if the element exist in HTML Page."""
-        try:
-            inputtxtAvancedSearch = driver.find_element_by_name("por-avancada")
-            inputtxtAvancedSearch.click()
-
-        except NoSuchElementException:
-            print("element by name not found!")
-            return False
-        return True
-
-    def pagination():
-        """Pagination."""
-        paginads = driver.find_elements_by_class_name("wrapper-pagination")
-        for b in paginads:
-            print(b.tag_name)
+display.stop()

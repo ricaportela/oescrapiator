@@ -83,6 +83,9 @@ venv/
 ENV/
 .venv/
 .vscode/
+jupyter/
+_treino/
+bak/
 
 # Spyder project settings
 .spyderproject
