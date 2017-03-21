@@ -1,7 +1,8 @@
 """Main module."""
 from app.scrapent2 import Browse_Webdriver
 
-URL = "file:///home/ricpds/my_projects/crawler-fb/html/index.html"
+# uso para testar localmente - URL = "file:///home/ricpds/my_projects/crawler-fb/html/index.html"
+URL = "https://www.revistanatura.com.br/html/widget"
 
 
 if __name__ == "__main__":

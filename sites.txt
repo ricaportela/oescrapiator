@@ -1,0 +1,4 @@
+Demanda: 3 robôs para fazer crawler:
+http://www.br.avon.com/PRSuite/locator.page
+http://www.natura.com.br/chame-consultor
+http://homolog.jequiti.com.br/encontre-uma-consultora/

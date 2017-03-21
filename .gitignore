@@ -86,6 +86,7 @@ ENV/
 jupyter/
 _treino/
 bak/
+html/
 
 # Spyder project settings
 .spyderproject
