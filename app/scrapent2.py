@@ -43,7 +43,7 @@ class Browse_Webdriver():
             for x in listConsultores:
                 listnames = listnames.insert(str(x.text).splitlines())
 
-            currentpage += 19
+            currentpage += 1
 
         print(listnames)
         # driver.execute_script("document.getElementByName('element-next active').click()")
