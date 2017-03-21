@@ -41,7 +41,7 @@ class Browse_Webdriver():
             print("Pagina atual", currentpage)
             listConsultores = driver.find_elements_by_class_name("element-consultant")
             for x in listConsultores:
-                listnames = listnames.insert(str(x.text).splitlines())
+                listnames = listnames.append(str(x.text).splitlines())
 
             currentpage += 1
 
