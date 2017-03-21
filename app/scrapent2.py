@@ -37,7 +37,7 @@ class Browse_Webdriver():
         print(totalpages)
         listnames = []
         while currentpage <= totalpages:
-            driver.implicitly_wait(3)
+            drv1.implicitly_wait(3) 
             print("Pagina atual", currentpage)
             listConsultores = driver.find_elements_by_class_name("element-consultant")
             for x in listConsultores:
